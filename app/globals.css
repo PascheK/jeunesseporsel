@@ -179,7 +179,7 @@
 
   /* Mobile Navigation */
   .mobile-header {
-    @apply flex h-[60px] justify-between px-5 sm:hidden bg-jeunesse !important;
+    @apply flex h-[60px] justify-between px-5 sm:hidden bg-jeunesse-navbar !important;
   }
 
   .mobile-nav {

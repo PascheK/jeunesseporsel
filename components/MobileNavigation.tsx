@@ -20,7 +20,7 @@ const MobileNavigation = () => {
            <Image
                 src="/assets/icons/logo.svg"
                 alt="logo"
-                width={100}
+                width={70}
                 height={52}
                 className="lg:hidden"
               />
