@@ -143,6 +143,9 @@
   .flex-center {
     @apply flex items-center justify-center;
   }
+  .transition-bigger{
+    @apply transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 !important
+  }
 
   /* Sidebar & MobileNavigation */
   .nav-icon {
