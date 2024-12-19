@@ -6,7 +6,7 @@ const ReservationTheatre = () => {
       <div className="flex w-full flex-col items-center justify-between gap-8">
         <h1 className="h1">Réservation</h1>
         <div className="flex w-full flex-col justify-center  gap-4 sm:flex-row">
-          <div className="w-1/3">
+          <div className="sm:w-1/3 w-full">
             <h2 className="h2 p-2"> Réservation :</h2>
             <div className="m-2 text-lg">
               <p>
@@ -19,7 +19,7 @@ const ReservationTheatre = () => {
               </p>
             </div>
           </div>
-          <div className="w-1/3">
+          <div className="sm:w-1/3 w-full">
             <h2 className="h2 p-2">Pour résumé :</h2>
             <div className="m-2 text-lg">
               <p>
