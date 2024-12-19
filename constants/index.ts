@@ -55,37 +55,37 @@ export const acteurCarousel = [
   {
     name: "Constance",
     desc: "Mademoiselle Constance est la secrétaire, fondée de pouvoirs de l’avocat, très dévouée et compétente.",
-    alt: "Image 1",
+    alt: "acteur constance",
     src: "/assets/images/acteurs/constance.png"
   },
   {
     name: "Marie-Antoinette",
     desc: "Marie-Antoinette de Saint-Hyppolite appartient à une branche secondaire de la petite noblesse. Pourtant, ses affaires ne marchent pas très bien.",
-    alt: "Image 1",
+    alt: "acteur marie-antoinette",
     src: "/assets/images/acteurs/marie-antoinette.png"
   },
   {
     name: "Hélène",
     desc: "Mademoiselle Hélène, une stagiaire hyper-timide, est à peine audible et cela rajoute à l’agacement de Maître Stanislas…",
-    alt: "Image 1",
+    alt: "acteur helene",
     src: "/assets/images/acteurs/helene.png"
   },
   {
     name: "Kristobal",
     desc: "Kristobal, le représentant d’une communauté de squatters… est « très cool », presque trop.",
-    alt: "Image 1",
+    alt: "acteur kristobal",
     src: "/assets/images/acteurs/kristobal.png"
   },
   {
     name: "Anastasie",
     desc: "Anastasie est une hypocondriaque très atteinte. Tout la rend malade, surtout le montant de sa nouvelle prime d’assurance.",
-    alt: "Image 1",
+    alt: "acteur anastasie",
     src: "/assets/images/acteurs/anastasie.png"
   },
   {
     name: "Josépha",
     desc: "Josepha, la secrétaire de Préfecture, est une femme moderne et dynamique. Elle a aussi des doutes à propos de vols dans la région.",
-    alt: "Image 1",
+    alt: "acteur josepha",
     src: "/assets/images/acteurs/josepha.png"
   },
 ];
