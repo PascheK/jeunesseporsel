@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 
 
-const CarouselImages = ({ imageCarousel }: ImageData) => {
+const CarouselImages = ({ imageCarousel }: ImageTypeData) => {
   const plugin = React.useRef(
     Autoplay({ delay: 5000, stopOnInteraction: true })
   );
