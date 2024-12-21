@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Site Web du Théâtre du Giron de Jeunesse
 
-## Getting Started
+Bienvenue sur le dépôt du site web pour la  **Jeunesse de Porsel**. Ce site a pour objectif de fournir toutes les informations nécessaires aux visiteurs et participants : horaires, lieu, réservations, et plus encore !
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## **Fonctionnalités du site**
+- **Présentation de la pièce** : Synopsis et détails sur le spectacle.
+- **Informations pratiques** : Accès, horaires, et réservations.
+- **Section acteurs** : Présentation des participants et équipes techniques.
+- **Contact** : Formulaire de contact et coordonnées.
+
+---
+
+## **Structure du projet**
+
+### Arborescence
+```
+jeunesseporsel/
+├── public/
+│   └──assets/        # Images pour le site (backgrounds, galerie, etc.)
+│      ├── icons/     # Icônes SVG (réseaux sociaux, flèches, etc.)
+|      images/        # Images statiques (logo, bannières, etc.)
+├── app/
+│   └── (root)/       # Pages principales du site (index, infos, contact, etc.)
+│   
+├── components/       # Composants réutilisables (navbar, footer, etc.) 
+│   
+├── constants/        # Constantes et données statiques (horaires, tarifs, etc.)
+│   
+├── lib/              # Fonctions utilitaires et helpers.
+│   
+├── types/            # Interfaces et types TypeScript.
+│           
+├── .gitignore          # Fichiers et dossiers ignorés par Git.
+├── package.json        # Dépendances et scripts du projet.
+├── README.md           # Documentation (ce fichier).
+└── tailwind.config.js  # Configuration de Tailwind CSS.
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## **Technologies utilisées**
+- **Frontend** : [Next.js](https://nextjs.org) pour la création de l'interface utilisateur dynamique.
+- **Backend** : 
+- **Styling** : [Tailwind CSS](https://tailwindcss.com/) ou CSS personnalisée.
+- **Hébergement** : [Vercel](https://vercel.com/) pour le déploiement du site.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## **Installation locale**
 
-To learn more about Next.js, take a look at the following resources:
+### Prérequis
+- **Node.js** (v16 ou plus récent)
+- Un gestionnaire de paquets comme `npm` ou `yarn`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Étapes d'installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/paschek/jeunesseporsel
+   ```
+2. Naviguez dans le dossier du projet :
+   ```bash
+   cd jeunesseporsel
+   ```
+3. Installez les dépendances pour le frontend :
+   ```bash
+   npm install
+   ```
+4. Démarrez le serveur de développement :
+   ```bash
+   npm run dev
+   ```
+5. Accédez au site sur [http://localhost:3000](http://localhost:3000).
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## **Auteurs**
+- **Pasche Killian** - Responsable principal.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## **Licence**
+Ce projet est sous licence [MIT](LICENSE).
