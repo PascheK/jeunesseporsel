@@ -19,7 +19,6 @@ const ActeurCarousel = () => {
 
   return (
     <div className="m-4 w-full">
-      <div className="hidden bg-brand-200 bg-brand-300 bg-brand-400 bg-brand-500 bg-brand-600 bg-brand-700 bg-brand-800 bg-brand-900"></div>
       <Carousel
         opts={{
           align: "start",

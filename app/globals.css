@@ -92,7 +92,7 @@
  
   /* ===== TYPOGRAPHY */
   .h1 {
-    @apply lg:text-[45px] md:text-[33px] md:leading-[33px] lg:leading-[45px] text-[24px] leading-[20px] uppercase font-bold !important;
+    @apply lg:text-[45px] md:text-[33px] md:leading-[33px] lg:leading-[45px] text-[24px] leading-[20px] uppercase font-bold;
   }
   .h2 {
     @apply sm:text-[24px] sm:leading-[36px] text-[20px] font-bold;
@@ -101,7 +101,7 @@
     @apply text-[20px] leading-[28px] font-semibold;
   }
   .h4 {
-    @apply sm:text-[25px] text-[18px] sm:leading-[30px]  font-normal   !important;
+    @apply sm:text-[25px] text-[18px] sm:leading-[30px]  font-semibold;
   }
   .h5 {
     @apply text-[16px] leading-[24px] font-semibold;
@@ -239,7 +239,7 @@
   }
   
   .info-pratique .cards {
-    @apply flex flex-col items-center m-auto gap-4 w-4/5 bg-theatre opacity-60 h-full text-jeunesse-white p-4 rounded-lg shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 !important;
+    @apply flex flex-col items-center m-auto gap-4 w-4/5 bg-theatre bg-opacity-60 h-full text-jeunesse-white p-4 rounded-lg shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 !important;
   }
   .acteur-presentation{
     @apply section bg-jeunesse-white !important; 

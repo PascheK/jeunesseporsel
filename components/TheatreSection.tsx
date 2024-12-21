@@ -26,10 +26,10 @@ const TheatreSection = () => {
           <div className="flex flex-row gap-4">
             <Link href="#reservation-theatre" scroll={true}>
               {" "}
-              <Button variant="default">Réserver </Button>
+              <Button className="transition-bigger" variant="default">Réserver </Button>
             </Link>{" "}
             <Link href="#info-pratique" scroll={true}>
-              <Button variant="secondary">Plus d&apos;information </Button>
+              <Button className="transition-bigger"  variant="secondary">Plus d&apos;information </Button>
             </Link>
           </div>
         </div>

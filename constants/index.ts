@@ -89,15 +89,3 @@ export const acteurCarousel = [
     src: "/assets/images/acteurs/josepha.png"
   },
 ];
-
-export const colorList = [
-  "bg-brand-100",
-  "bg-brand-200",
-  "bg-brand-300",
-  "bg-brand-400",
-  "bg-brand-500",
-  "bg-brand-600",
-  "bg-brand-700",
-  "bg-brand-800",
-  "bg-brand-900",
-]

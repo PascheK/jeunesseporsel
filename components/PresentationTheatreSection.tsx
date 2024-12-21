@@ -6,7 +6,7 @@ const PresentationTheatreSection = () => {
       <div className=" flex w-auto flex-col m-auto sm:w-4/5 gap-5 " >
       <h1 className="h1 py-5 px-2" >Un soucis à l&apos;étude</h1>
    
-        <div className="bg-jeunesse opacity-95 text-jeunesse-white mx-2  rounded-xl bg-opacity-90 p-2 shadow-md lg:w-2/3 w-auto sm:m-auto  sm:p-10 ">
+        <div className="bg-jeunesse opacity-95 text-jeunesse-white mx-2  rounded-xl bg-opacity-90 p-2 shadow-drop-3 lg:w-2/3 w-auto sm:m-auto  sm:p-10 ">
           <div className="guillmets flex w-auto items-start">
             <h1>“</h1>
           </div>

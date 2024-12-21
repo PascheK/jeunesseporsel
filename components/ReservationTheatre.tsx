@@ -7,20 +7,21 @@ const ReservationTheatre = () => {
         <h1 className="h1">Réservation</h1>
         <div className="flex w-full flex-col justify-center  gap-4 sm:flex-row">
           <div className="sm:w-1/3 w-full">
-            <h2 className="h2 p-2"> Réservation :</h2>
+            <h4 className="h4 p-2"> Réservation :</h4>
             <div className="m-2 text-lg">
               <p>
+                Les places de théatres sont malheureusement limitées. Nous vous recommandons de réserver vos places à l&apos;avance pour être sûr d&apos;avoir une place. La salle de théatre peut accueillir environ 200 personnes.
                 Pour réserver vos places, merci de nous contacter par téléphone
-                au{" "}
-                <span className="bg-brand-100 rounded-md p-1 font-bold">
-                  +41.77.538.50.05
+                au{" "} <br/>
+                <span className="bg-brand-100 rounded-md p-1 font-bold hover:text-white transition-colors">
+                 <a href='tel:+4177538505'> +41 77 538 50 05</a>
                 </span>
                 .
               </p>
             </div>
           </div>
           <div className="sm:w-1/3 w-full">
-            <h2 className="h2 p-2">Pour résumé :</h2>
+            <h4 className="h4 p-2">Pour résumé :</h4>
             <div className="m-2 text-lg">
               <p>
                 📍 <span className="font-bold">Lieu : </span>
@@ -45,8 +46,8 @@ const ReservationTheatre = () => {
               </p>
               <li className="list-disk ml-5">
                 Par téléphone au{" "}
-                <span className="bg-brand-100 rounded-md p-1 font-bold">
-                  +41.77.538.50.05
+                <span className="bg-brand-100 rounded-md p-1 font-bold hover:text-white transition-colors">
+                <a href='tel:+4177538505'> +41 77 538 50 05</a>
                 </span>
                 .
               </li>
