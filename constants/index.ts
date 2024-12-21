@@ -3,6 +3,14 @@ export const navItems = [
     name: "Théatre",
     url: "/"
   },
+  {
+    name: "Fondue",
+    url: "/fondue"
+  },
+  {
+    name: "Contact",
+    url: "/contact"
+  },
 ];
 interface CarouselItem {
   alt: string;
