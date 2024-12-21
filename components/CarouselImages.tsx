@@ -9,7 +9,6 @@ import {
 
 import Image from "next/image";
 
-
 const CarouselImages = ({ imageCarousel }: ImageTypeData) => {
   const plugin = React.useRef(
     Autoplay({ delay: 5000, stopOnInteraction: true })
@@ -23,19 +22,27 @@ const CarouselImages = ({ imageCarousel }: ImageTypeData) => {
   // Function to close zoomed image
   const closeZoomedImage = () => {
     setZoomedImage(null);
-  };  return (
+  };
+  return (
     <>
       <Carousel plugins={[plugin.current]}>
         <CarouselContent>
           {imageCarousel.map(({ alt, src }: { alt: string; src: string }) => (
             <CarouselItem key={alt} className="flex justify-center">
+              <div onClick={() => openZoomedImage(src)} className="bg-jeunesse absolute flex size-full items-center justify-center  bg-opacity-55 opacity-0 transition-all hover:opacity-100">
+                <Image
+                  src="https://img.icons8.com/?size=100&id=34825&format=png&color=ffffff"
+                  alt="zoom"
+                  width="50"
+                  height="50"
+                />
+              </div>
               <Image
                 src={src}
                 alt={alt}
                 width={400}
                 height={500}
                 className="hidden lg:block"
-                onClick={() => openZoomedImage(src)}
               />
               <Image
                 src={src}
@@ -43,7 +50,6 @@ const CarouselImages = ({ imageCarousel }: ImageTypeData) => {
                 width={250}
                 height={500}
                 className="lg:hidden"
-                onClick={() => openZoomedImage(src)}
               />
             </CarouselItem>
           ))}
@@ -51,7 +57,13 @@ const CarouselImages = ({ imageCarousel }: ImageTypeData) => {
       </Carousel>
       {zoomedImage && (
         <div className="zoomed-image-container" onClick={closeZoomedImage}>
-          <Image src={zoomedImage} alt="zoomed-image"  layout="fill" objectFit="contain" className="carousel-zoomed-image"/>
+          <Image
+            src={zoomedImage}
+            alt="zoomed-image"
+            layout="fill"
+            objectFit="contain"
+            className="carousel-zoomed-image"
+          />
         </div>
       )}
     </>
@@ -59,7 +71,3 @@ const CarouselImages = ({ imageCarousel }: ImageTypeData) => {
 };
 
 export default CarouselImages;
-
-
-
-

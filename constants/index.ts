@@ -3,14 +3,6 @@ export const navItems = [
     name: "Théatre",
     url: "/"
   },
-  {
-    name: "Soirée fondue",
-    url: "/fondue"
-  },
-  {
-    name: "Contacte",
-    url: "/contact"
-  }
 ];
 interface CarouselItem {
   alt: string;
@@ -22,10 +14,6 @@ export const itemCarousel: CarouselItem[] = [
     alt: "Image 1",
     src: "/assets/images/theatre_affiche.jpg"
   },
-  {
-    alt: "Image 2",
-    src: "/assets/images/theatre_affiche.jpg"
-  }
 ];
 export const acteurCarousel = [
   {
