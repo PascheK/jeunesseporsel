@@ -164,7 +164,7 @@
 
   /* Header */
   .header {
-    @apply hidden items-center  gap-5 p-5 sm:flex lg:py-7 xl:gap-10 w-full bg-jeunesse-navbar border-b-2 !important;
+    @apply hidden items-center  gap-5 p-5 sm:flex lg:py-7 xl:gap-10 w-full bg-jeunesse-navbar border-b-2 z-50 !important;
   }
   .header-wrapper {
     @apply flex-center min-w-fit gap-4 w-full justify-end !important;
@@ -258,6 +258,11 @@
   .actorCard:hover .actorDesc{
     @apply opacity-100 transition-all delay-1000 !important;
   }
+
+  .jeunesse-section{
+    @apply section !important;
+  }
+
 }
 
 @layer base {

@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'hero-bannier': "url('/assets/images/jeunesse_mai.jpg')",
+      },
       colors: {
         jeunesse: {
           DEFAULT: "#0a0908",
