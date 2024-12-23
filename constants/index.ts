@@ -7,18 +7,12 @@ export const navItems = [
     name: "Théatre",
     url: "/theatre"
   },
-  {
-    name: "Fondue",
-    url: "/fondue"
-  },
+
   {
     name: "Société",
     url: "/societe"
   },
-  {
-    name: "Contact",
-    url: "/contact"
-  },
+
 ];
 interface CarouselItem {
   alt: string;
