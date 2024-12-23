@@ -205,7 +205,7 @@
   }
 
   .theatre {
-    @apply section bg-jeunesse h-[110%] !important;
+    @apply section bg-jeunesse h-[130%] sm:h-full !important;
   }
   .theatre .title {
     @apply text-jeunesse-white lg:text-[53px] md:text-[33px] md:leading-[33px] lg:leading-[52px] text-[20px] leading-[20px] font-bold !important;
