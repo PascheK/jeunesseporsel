@@ -93,3 +93,206 @@ export const acteurCarousel = [
     src: "/assets/images/acteurs/josepha.png"
   },
 ];
+
+export const membreJeunesse = [
+  {
+    nom: "Dénervaud",
+    prenom: "Mathieu",
+    role: "Président",
+  },
+  {
+    nom: "Barbey",
+    prenom: "Nolan",
+    role: "Vice-Président",
+  },
+  {
+    nom: "Pasche",
+    prenom: "Killian",
+    role: "Secrétaire",
+  },
+  {
+    nom: "Levrat",
+    prenom: "Julie",
+    role: "Caissière",
+  },
+  {
+    nom: "Dévaud",
+    prenom: "Alicia",
+    role: "5 ème membre",
+  },
+  {
+    nom: "Champerlin",
+    prenom: "Théo",
+    role: "",
+  },
+  {
+    nom: 'Bachmann',
+    prenom: 'Sarah',
+    role:'',
+  },
+  {
+    nom: 'Bulliard',
+    prenom: 'Elena',
+    role:'',
+  },
+  {
+    nom: 'Barbey',
+    prenom: 'Marilyne',
+    role:'',
+  },
+  {
+    nom: 'Barbey',
+    prenom: 'Michaël',
+    role:'',
+  },
+  {
+    nom: 'Bongard',
+    prenom: 'Mathias',
+    role:'',
+  },
+  {
+    nom: 'Cardinaux',
+    prenom: 'Gaëlane',
+    role:'',
+  },
+  {
+    nom: 'Cardinaux',
+    prenom: 'Laura',
+    role:'',
+  },
+  {
+    nom: 'Cardinaux',
+    prenom: 'Maëline',
+    role:'',
+  },
+  {
+    nom: 'Cardinaux',
+    prenom: 'Nathaël',
+    role:'',
+  },
+  {
+    nom: 'Chaperon',
+    prenom: 'Delia',
+    role:'',
+  },
+  {
+    nom: 'Dénervaud',
+    prenom: 'Christophe',
+    role:'',
+  },
+  {
+    nom: 'Dénervaud',
+    prenom: 'Jeanne',
+    role:'',
+  },
+  {
+    nom: 'Dévaud',
+    prenom: 'Camille',
+    role:'',
+  },
+  {
+    nom: 'Dewarrat',
+    prenom: 'Chiara',
+    role:'',
+  },
+  {
+    nom: 'Donzallaz',
+    prenom: 'William',
+    role:'',
+  },
+  {
+    nom: 'Dougoud',
+    prenom: 'Emma',
+    role:'',
+  },
+  {
+    nom: 'Dumas',
+    prenom: 'Max',
+    role:'',
+  },
+  {
+    nom: 'Egli',
+    prenom: 'Quentin',
+    role:'',
+  },
+  {
+    nom: 'Fragnière',
+    prenom: 'Alexis',
+    role:'',
+  },
+  {
+    nom: 'Fragnière',
+    prenom: 'Melvyn',
+    role:'',
+  },
+  {
+    nom: 'Genoud',
+    prenom: 'Alan',
+    role:'',
+  },
+  {
+    nom: 'Gfeller',
+    prenom: 'Mallory',
+    role:'',
+  },
+  {
+    nom: 'Goumoëns',
+    prenom: 'Alyssa',
+    role:'',
+  },
+  {
+    nom: 'Levrat',
+    prenom: 'Antoine',
+    role:'',
+  },
+  {
+    nom: 'Liaudat',
+    prenom: 'Mattéo',
+    role:'',
+  },
+  {
+    nom: 'Maillard',
+    prenom: 'Laure',
+    role:'',
+  },
+  {
+    nom: 'Michaud',
+    prenom: 'Samuel',
+    role:'',
+  },
+  {
+    nom: 'Pichonnaz',
+    prenom: 'Salomée',
+    role:'',
+  },
+  {
+    nom: 'Ruchonnet',
+    prenom: 'Franck',
+    role:'',
+  },
+  {
+    nom: 'Ruchonnet',
+    prenom: 'Xavier',
+    role:'',
+  },
+  {
+    nom: 'Sansonnens',
+    prenom: 'Lucas',
+    role:'',
+  },
+  {
+    nom: 'Staehli',
+    prenom: 'Bastien',
+    role:'',
+  },
+  {
+    nom: 'Tarres',
+    prenom: 'Mathieu',
+    role:'',
+  },
+  {
+    nom: 'Terreaux',
+    prenom: 'Sara',
+    role:'',
+  },
+]

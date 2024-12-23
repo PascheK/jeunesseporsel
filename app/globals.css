@@ -262,6 +262,12 @@
   .jeunesse-section{
     @apply section !important;
   }
+  .comite-section{
+    @apply section !important;
+  }
+  .membre-section{
+    @apply section !important;
+  }
 
 }
 
