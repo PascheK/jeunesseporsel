@@ -23,6 +23,7 @@ const CarouselImages = ({ imageCarousel }: ImageTypeData) => {
   const closeZoomedImage = () => {
     setZoomedImage(null);
   };
+
   return (
     <>
       <Carousel plugins={[plugin.current]}>

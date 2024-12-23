@@ -6,7 +6,7 @@ import MembreSection from '@/components/MembreSection'
 const page = () => {
   return (
     <>
-    <JeunesseSection />
+    <JeunesseSection href='#comite-jeunesse'/>
     <ComiteSection />
     <MembreSection />
     </>
