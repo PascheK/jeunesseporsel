@@ -258,6 +258,10 @@
   .actorCard:hover .actorDesc{
     @apply opacity-100 transition-all delay-1000 !important;
   }
+  .contact-section {
+    @apply section;
+  }
+
 
   .jeunesse-section{
     @apply section !important;

@@ -7,7 +7,7 @@ const JeunesseSection = ({href}:{href:string}) => {
       <div className="bg-hero-bannier relative block size-full bg-cover bg-center bg-no-repeat transition-all">
         <div className="flex h-full flex-col items-center justify-center text-jeunesse-white">
           <div className="bg-jeunesse absolute size-full bg-opacity-85"></div>
-          <div className="text-center text-jeunesse-white z-10 flex flex-col items-center justify-center gap-4">
+          <div className="text-center text-jeunesse-white z-10 flex flex-col items-center justify-center gap-4 animate-in fade-in zoom-in">
             <h1 className="h1">Jeunessse de Porsel</h1>
             <h2 className="h2">Notre équipe de copains !</h2>
           </div>
