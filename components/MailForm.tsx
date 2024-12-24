@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 import {
   Form,
   FormControl,
@@ -23,8 +24,8 @@ const formSchema = z.object({
 });
 
 const MailForm = () => {
-  const [result, setResult] = useState<Record<string, string>>({});
-
+  const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -35,23 +36,39 @@ const MailForm = () => {
       message: ""
     }
   });
-  const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const data = {
       email: values.mail,
       subject: values.sujet,
-      text: values.message
+      text: values.prenom +" "+values.nom +"\n"+ values.message
     };
+    setIsLoading(true);
     fetch("api/emails", {
       method: "POST",
-      body: JSON.stringify(data),
+      body: JSON.stringify(data)
     })
       .then((response) => response.json())
-      .then((data) => setResult(data))
+      .then(() => {
+        toast({
+          variant: "success",
+          duration: 3000,
+          title: "🎉 Votre message a été envoyé avec succès !"
+        });
+      })
       .catch((error) => {
-        setResult(error);
-      });
+        toast({
+          duration: 3000,
+          variant: "destructive",
+          title: "Votre message n'as pas été envoyée !",
+          description: error.message
+        });
+      })
+      .finally(() => {
+        setIsLoading(false);
+        form.reset();
+      })
+      ;
   };
 
   return (
@@ -118,8 +135,13 @@ const MailForm = () => {
             name="message"
             render={({ field }) => (
               <FormItem className="col-span-2">
+                <FormLabel>Message :</FormLabel>
                 <FormControl>
-                  <Textarea placeholder="votre message..." {...field} />
+                  <Textarea
+                    className="min-h-[150px]"
+                    placeholder="votre message..."
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -127,12 +149,15 @@ const MailForm = () => {
           />
           <div className="col-span-2 flex items-center justify-center">
             <Button disabled={isLoading} type="submit">
-              {isLoading ? "envoyé..." : "Envoyé le message !"}
+              {isLoading ? (
+                <p>Envoie en cours...</p>
+              ) : (
+                <p>Envoyer le message !</p>
+              )}
             </Button>
           </div>
         </form>
       </Form>
-      <p>{JSON.stringify(result)}</p>
     </div>
   );
 };

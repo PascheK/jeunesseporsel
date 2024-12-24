@@ -4,7 +4,7 @@ import MailForm from "@/components/MailForm";
 const ContactSection = () => {
   return (
     <section className="contact-section">
-      <div className="m-auto w-4/5">
+      <div className="m-auto md:w-4/5">
         <h1 className="h1 m-auto mb-10">Contactez nous !</h1>
         <MailForm />
         <div className="m-auto my-5">

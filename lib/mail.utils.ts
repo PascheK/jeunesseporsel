@@ -13,23 +13,21 @@ const transport = nodemailer.createTransport({
 } as SMTPTransport.Options);
 
 
+
+
 export const sendEmail = async (dto: SendEmailDto) => {
-  try {
-    await transport.verify();
-  } catch (error) {
-    console.error('Something Went Wrong', process.env.MAIL_HOST, process.env.MAIL_PASSWORD, error);
+  const ok = await transport.verify();
+  if (!ok) {
+    console.error('Something Went Wrong', process.env.MAIL_HOST, process.env.MAIL_PASSWORD);
     return;
   }
   const {email,sendTo, subject, text, html} = dto;
 
-  const info = await transport.sendMail({
+  return await transport.sendMail({
     from: email,
-    to: sendTo || 'info@jeunessedeporsel.ch',
+    to: sendTo,
     subject: subject,
     text: text,
     html: html ? html : '',
   });
-  console.log('Message Sent', info.messageId);
-  console.log('Mail sent to', 'info@jeunessedeporsel.ch');
-  return info;
 }
