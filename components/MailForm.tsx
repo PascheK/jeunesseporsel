@@ -1,6 +1,5 @@
 "use client";
-
-import React from "react";
+import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -15,15 +14,16 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { sendEmail } from "@/lib/mail.utils";
+const formSchema = z.object({
+  nom: z.string().min(2).max(50),
+  prenom: z.string().min(2).max(50),
+  mail: z.string().min(2).max(100),
+  sujet: z.string().min(2).max(50),
+  message: z.string().min(2).max(1000)
+});
+
 const MailForm = () => {
-  const formSchema = z.object({
-    nom: z.string().min(2).max(50),
-    prenom: z.string().min(2).max(50),
-    mail: z.string().min(2).max(100),
-    sujet: z.string().min(2).max(50),
-    message: z.string().min(2).max(1000)
-  });
+  const [result, setResult] = useState<Record<string, string>>({});
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -38,17 +38,20 @@ const MailForm = () => {
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    const response = await sendEmail({
+    const data = {
       email: values.mail,
       subject: values.sujet,
-      text:  values.message,
+      text: values.message
+    };
+    fetch("api/emails", {
+      method: "POST",
+      body: JSON.stringify(data),
     })
-
-    if(response?.messageId){
-      console.log('oui ouie')
-    }else{
-      console.log('no no')
-    }
+      .then((response) => response.json())
+      .then((data) => setResult(data))
+      .catch((error) => {
+        setResult(error);
+      });
   };
 
   return (
@@ -123,10 +126,13 @@ const MailForm = () => {
             )}
           />
           <div className="col-span-2 flex items-center justify-center">
-            <Button disabled={isLoading} type="submit">{isLoading ? 'envoyé...' : 'Envoyé le message !'}</Button>
+            <Button disabled={isLoading} type="submit">
+              {isLoading ? "envoyé..." : "Envoyé le message !"}
+            </Button>
           </div>
         </form>
       </Form>
+      <p>{JSON.stringify(result)}</p>
     </div>
   );
 };

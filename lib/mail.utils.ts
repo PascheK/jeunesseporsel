@@ -12,13 +12,7 @@ const transport = nodemailer.createTransport({
   },
 } as SMTPTransport.Options);
 
-type SendEmailDto = {
-  email: string;
-  sendTo?: string;
-  subject: string;
-  text: string;
-  html?: string;
-}
+
 export const sendEmail = async (dto: SendEmailDto) => {
   try {
     await transport.verify();
