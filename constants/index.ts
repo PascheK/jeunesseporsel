@@ -27,8 +27,27 @@ interface CarouselItem {
 
 export const itemCarousel: CarouselItem[] = [
   {
-    alt: "Image 1",
+    alt: "Théatre affiche",
     src: "/assets/images/theatre_affiche.jpg"
+  },
+];
+
+export const photoCarousel: CarouselItem[] = [
+  {
+    alt: "Fondue 1",
+    src: "/assets/images/fondue/fondue_1.jpeg"
+  },
+  {
+    alt: "Fondue 2",
+    src: "/assets/images/fondue/fondue_2.jpeg"
+  },
+  {
+    alt: "Fondue 3",
+    src: "/assets/images/fondue/fondue_3.jpeg"
+  },
+  {
+    alt: "Fondue 4",
+    src: "/assets/images/fondue/fondue_4.jpeg"
   },
 ];
 export const acteurCarousel = [

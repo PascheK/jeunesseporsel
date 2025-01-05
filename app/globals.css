@@ -238,7 +238,7 @@
     @apply section  bg-jeunesse-white !important; 
   }
   
-  .info-pratique .cards {
+   .cards {
     @apply flex flex-col items-center m-auto gap-4 w-4/5 bg-theatre bg-opacity-60 h-full text-jeunesse-white p-4 rounded-lg shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 !important;
   }
   .acteur-presentation{
@@ -270,6 +270,9 @@
     @apply section !important;
   }
   .membre-section{
+    @apply section !important;
+  }
+  .fondue-section{
     @apply section !important;
   }
 

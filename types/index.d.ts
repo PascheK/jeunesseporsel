@@ -9,3 +9,21 @@ declare interface SendEmailDto  {
   text: string;
   html?: string;
 }
+
+declare interface Evenements {
+  nom: string;
+  date: string;
+  id: number;
+  jour: number;
+  nbPlace: number;
+}
+
+declare interface Inscrit {
+  id : number;
+  idEvent : Evenements;
+  mail : string;
+  nbPlace : number;
+  nom : string;
+  prenom : string;
+  telephone : string;
+}

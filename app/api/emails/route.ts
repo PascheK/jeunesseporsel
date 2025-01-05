@@ -1,5 +1,3 @@
-export const dynamic = 'force-static'
-
 import { sendEmail } from "@/lib/mail.utils";
 
 interface EmailData {

@@ -43,7 +43,7 @@ const CarouselImages = ({ imageCarousel }: ImageTypeData) => {
                 alt={alt}
                 width={400}
                 height={500}
-                className="hidden lg:block"
+                className="hidden lg:block w-auto max-h-[500px]"
               />
               <Image
                 src={src}
