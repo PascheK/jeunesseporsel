@@ -144,11 +144,45 @@ const config: Config = {
           "20%,50%": {
             opacity: "0"
           }
+        },
+        "slide-in": {
+          "0%": {
+            transform: "translateX(-50px)",
+            opacity: "0",
+          },
+          "20%": {
+            opacity: "0",
+          
+          },
+          "95%":{
+            opacity: "100",
+          },
+          "100%": {
+            transform: "translateX(0)"
+          }
+        },
+        "slide-out": {
+          "0%": {
+            transform: "translateX(0)",
+            
+          },
+          "20%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "0",
+            transform: "translateX(-50px)"
+          }
         }
       },
       animation: {
-        "caret-blink": "caret-blink 1.25s ease-out infinite"
-      }
+        "caret-blink": "caret-blink 1.25s ease-out infinite",
+        "slide-in": "slide-in 0.5s ease-out forwards",
+        "slide-out": "slide-out 0.5s ease-out forwards"
+      },
+      transitionProperty: {
+        'height': 'height'
+      },
     }
   },
   plugins: [require("tailwindcss-animate")]

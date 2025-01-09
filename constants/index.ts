@@ -1,23 +1,28 @@
 export const navItems = [
   {
     name: "Accueil",
-    url: "/"
+    url: "/",
+    isActive: true,
   },
   {
     name: "Théatre",
-    url: "/theatre"
+    url: "/theatre",
+    isActive: true,
   },
   {
     name: "Fondue",
-    url: "/fondue"
+    url: "/fondue",
+    isActive: true,
   },
   {
     name: "Société",
-    url: "/societe"
+    url: "/societe",
+    isActive: true,
   },
   {
     name: "Contact",
-    url: "/contact"
+    url: "/contact",
+    isActive: true,
   },
 ];
 interface CarouselItem {

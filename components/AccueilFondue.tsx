@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const AccueilFondue = () => {
   return (
-    <section className="theatre ">
+    <section className="fondue ">
       <div className="m-12 mx-auto grid grid-cols-1 justify-items-center px-4 sm:gap-8 md:grid-cols-2 "  data-aos="fade-up">
         <div className="text-jeunesse-white order-2 my-5 flex flex-col items-center justify-center gap-4 md:order-1"  >
 
@@ -22,7 +22,7 @@ const AccueilFondue = () => {
           </div>
         </div>
         <div className="order-1 my-5 md:order-2">
-          <CarouselImages imageCarousel={photoCarousel} />
+          <CarouselImages imageCarousel={photoCarousel}/>
         </div>
       </div>
     </section>

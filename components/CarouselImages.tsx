@@ -50,7 +50,7 @@ const CarouselImages = ({ imageCarousel }: ImageTypeData) => {
                 alt={alt}
                 width={250}
                 height={500}
-                className="lg:hidden"
+                className="lg:hidden w-full h-[350px]"
               />
             </CarouselItem>
           ))}

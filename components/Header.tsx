@@ -28,18 +28,20 @@ const Header = () => {
         />
       </Link>
       <ul className="header-wrapper">
-        {navItems.map(({ name, url }: { name: string; url: string }) => (
-          <Link key={name} href={url}>
-            <li
-              className={cn(
-                "header-wrapper-item",
-                pathname === url && "active"
-              )}
-            >
-              {name}
-            </li>
-          </Link>
-        ))}
+    {navItems.map(({ name, url, isActive }: { name: string; url: string; isActive: boolean }) => (
+      isActive && (
+        <Link key={name} href={url}>
+          <li
+            className={cn(
+              "header-wrapper-item",
+              pathname === url && "active"
+            )}
+          >
+            {name}
+          </li>
+        </Link>
+      )
+    ))}
       </ul>
     </header>
   );
