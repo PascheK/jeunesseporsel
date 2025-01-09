@@ -17,7 +17,7 @@ const InfoPratiqueSection = () => {
         <div className='cards'>
         <Image src='/assets/icons/time.svg' alt='temps' width={50} height={50}/>
         <h2 className='h2'>Durée ?</h2>  
-        <p>Le spectacle est divisé en 3 acte de 40 minute avec 15 minute de pause entre chaque actes,</p>
+        <p>Le spectacle est divisé en 4 actes avec deux entractes.</p>
         </div>
         <div className='cards'>
         <Image src='/assets/icons/question-mark.svg' alt='question' width={50} height={50}/>
