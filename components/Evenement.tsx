@@ -51,7 +51,7 @@ const Evenement = (evenement: Evenements) => {
                   <p
                     onClick={() => setMenu("inscrition")}
                     className={cn(
-                      "",
+                      "cursor-pointer",
                       menu === "inscrition" && "text-brand-100"
                     )}
                   >
@@ -60,7 +60,7 @@ const Evenement = (evenement: Evenements) => {
                   <p
                     onClick={() => setMenu("reinscription")}
                     className={cn(
-                      "",
+                      "cursor-pointer",
                       menu === "reinscription" && "text-brand-100"
                     )}
                   >

@@ -16,6 +16,7 @@ export async function GET(): Promise<Response> {
 export async function POST(request: Request): Promise<Response> {
   try{
     const data = await request.json();
+    
     console.log('body :', data);
     return Response.json({status: 200, 'data': data});
   }catch(e){
