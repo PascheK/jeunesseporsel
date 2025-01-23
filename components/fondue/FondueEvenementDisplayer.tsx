@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import Evenement from "./Evenement";
+import Evenement from "@/components/fondue/Evenement";
 
 const FondueEvenementDisplayer = () => {
   const [isDataEmpty, setIsDataEmpty] = useState(true)

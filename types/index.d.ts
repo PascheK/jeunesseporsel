@@ -19,11 +19,22 @@ declare interface Evenements {
 }
 
 declare interface Inscrit {
+  eventId : Evenements;
   id : number;
-  idEvent : Evenements;
-  mail : string;
-  nbPlace : number;
   nom : string;
   prenom : string;
+  mail : string;
+  nbPlace : number;
   telephone : string;
+}
+
+declare interface modifyInscrit {
+  inscritId: string;
+  codeOTP: string;
+  nbPlace: string;
+}
+
+declare interface modifyInscritProps {
+  inscritId: string;
+   nbPlace: string;
 }

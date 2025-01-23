@@ -1,6 +1,6 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import MobileNavigation from "@/components/MobileNavigation";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import MobileNavigation from "@/components/layout/MobileNavigation";
 import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 

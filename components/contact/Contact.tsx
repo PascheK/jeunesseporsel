@@ -1,7 +1,7 @@
 import React from "react";
-import MailForm from "@/components/MailForm";
+import MailForm from "@/components/forms/FormMail";
 
-const ContactSection = () => {
+const Contact = () => {
   return (
     <section className="contact-section">
       <div className="m-auto md:w-4/5">
@@ -24,4 +24,4 @@ const ContactSection = () => {
   );
 };
 
-export default ContactSection;
+export default Contact;

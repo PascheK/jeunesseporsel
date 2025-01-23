@@ -1,7 +1,6 @@
 'use server'
 export const getEvenements = async () => {
   try{
-    console.log('URL :', process.env.URL)
     const res = await fetch(process.env.URL+'evenement/', {
       method: 'GET',
       headers: {

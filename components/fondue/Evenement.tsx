@@ -11,18 +11,30 @@ import {
 import { Separator } from "@radix-ui/react-separator";
 import { cn } from "@/lib/utils";
 
-import FormInscription from "./FormInscription";
-import FormModification from "./FormModification";
-
-
-
+import FormInscription from "@/components/forms/FormInscription";
+import FormModification from "@/components/forms/FormModification";
 
 const Evenement = (evenement: Evenements) => {
   const [menu, setMenu] = useState("inscrition");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   const { nom, date, jour, nbPlace } = evenement;
+  const handleFormSuccess = (res: string) => {
+    switch (res) {
+      case "success":
+        console.log("success");
+        break;
+      case "error":
+        console.log("error");
+        break;
+      default:
+        break;
+    }
+    setIsDialogOpen(false); // Fermer le Dialog après une soumission réussie
+  };
   useEffect(() => {
     console.log(menu);
-  }, [menu]); 
+  }, [menu]);
 
   return (
     <div className="container flex flex-row items-center justify-between ">
@@ -34,7 +46,7 @@ const Evenement = (evenement: Evenements) => {
         <h2 className="text-lg font-bold">{nom}</h2>
         <div>
           <p className="font-bold">{nbPlace} places</p>
-          <Dialog >
+          <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger className="bg-jeunesse text-jeunesse-white rounded-lg p-2">
               Réserver
             </DialogTrigger>
@@ -68,11 +80,19 @@ const Evenement = (evenement: Evenements) => {
                   </p>
                 </div>
                 <Separator />
-                <div className={cn('transition-all duration-500',menu === "inscrition" ? 'h-[380px]': 'h-[200px]')}>
+                <div
+                  className={cn(
+                    "transition-all duration-500  ",
+                    menu === "inscrition" ? "max-h-[480px]" : "max-h-[300px]"
+                  )}
+                >
                   {menu === "inscrition" ? (
-                   <FormInscription nbPlace={nbPlace} idEvent={evenement.id} />
+                    <FormInscription nbPlace={nbPlace} idEvent={evenement.id} onSubmitSuccess={handleFormSuccess} />
                   ) : (
-                    <FormModification nbPlace={nbPlace} idEvent={evenement.id} />
+                    <FormModification
+                      nbPlace={nbPlace}
+                      
+                    />
                   )}
                 </div>
               </div>

@@ -38,7 +38,7 @@ const formSchema = z.object({
     .max(1000, { message: "Veuillez entrer au maximum 1000 caractères" })
 });
 
-const MailForm = () => {
+const FormMail = () => {
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
@@ -221,4 +221,4 @@ const MailForm = () => {
   );
 };
 
-export default MailForm;
+export default FormMail;

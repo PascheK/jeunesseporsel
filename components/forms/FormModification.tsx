@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -14,53 +14,66 @@ import {
   FormMessage
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot
-} from "@/components/ui/input-otp";
-import FormOtp from "./FormOtp";
+ 
+import FormOtp from "@/components/forms/FormOtp";
 
 const formSchemaModifyInscrit = z.object({
   idInscrit: z
     .string()
     .min(1, { message: "Le nombre minimum est 1." })
     .max(200, { message: "Le nombre maximal est 200." }),
-  npPlaceFinal: z
+    nbPlaceFinal: z
     .string()
     .min(1, { message: "Le nombre minimum est 1." })
     .max(200, { message: "Le nombre maximal est 200." })
 });
-const FormModification = ({
-  nbPlace,
-  idEvent
-}: {
-  nbPlace: number;
-  idEvent: number;
-}) => {
+const FormModification = ({ nbPlace }: { nbPlace: number }) => {
   const [step, setStep] = useState(1);
   const [isSliding, setIsSliding] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const formModifyInscrit = useForm<z.infer<typeof formSchemaModifyInscrit>>({
     resolver: zodResolver(formSchemaModifyInscrit),
     defaultValues: {
       idInscrit: "",
-      npPlaceFinal: ""
+      nbPlaceFinal: ""
     }
   });
 
-  function handleConfirm(values: z.infer<typeof formModifyInscrit>) {
-    console.log(values);
+  async function handleConfirm(
+    values: z.infer<typeof formSchemaModifyInscrit>
+  ) {
+    // generate Code for idInscrit
+    const data = { ...values, method: "generateCode" };
+    setIsLoading(true);
+    await fetch("api/inscrits", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log("response ok");
+         
+        } else {
+          console.log("response not ok");
+        }
+      })
+      .finally(() => setIsLoading(false));
+    console.log(data);
+
     setIsSliding(true);
 
     setTimeout(() => {
       setStep(step === 1 ? 2 : 1);
-      setIsSliding(false); 
-    }, 500); 
+      setIsSliding(false);
+    }, 500);
   }
   return (
     <div
-      className={`relative  transition-all h-[200px] ${
+      className={`relative  transition-all  ${
         isSliding ? "animate-slide-out" : "animate-slide-in"
       }`}
     >
@@ -77,7 +90,12 @@ const FormModification = ({
                 <FormItem>
                   <FormLabel>Code d&apos;inscription</FormLabel>
                   <FormControl>
-                    <Input placeholder="123456" {...field} />
+                    <Input
+                      disabled={isLoading}
+                      placeholder="123456"
+                      {...field}
+
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -85,12 +103,13 @@ const FormModification = ({
             />
             <FormField
               control={formModifyInscrit.control}
-              name="npPlaceFinal"
+              name="nbPlaceFinal"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Nombre de place</FormLabel>
+                  <FormLabel>* Nombre de place </FormLabel>
                   <FormControl>
                     <Input
+                      disabled={isLoading}
                       type="number"
                       max={nbPlace}
                       min="1"
@@ -102,13 +121,19 @@ const FormModification = ({
                 </FormItem>
               )}
             />
-            <Button type="submit">Modifier !</Button>
+            <p className="caption text-gray-600">
+              <span className="font-bold">* Nombre de place :</span> Veuillez
+              entrez le nombre de place que vous voulez rajouter.
+            </p>
+            <Button type="submit" disabled={isLoading}>
+              Modifier !
+            </Button>
           </form>
         </Form>
       ) : (
         <>
-          <FormOtp />
-          <Button onClick={() => handleConfirm()}>Retour</Button>
+          <FormOtp inscritId={String(formModifyInscrit.getValues("idInscrit"))} nbPlace={formModifyInscrit.getValues("nbPlaceFinal")} />
+          <Button onClick={() => handleConfirm(formModifyInscrit.getValues())}>Retour</Button>
         </>
       )}
     </div>

@@ -2,7 +2,7 @@
 import { CarouselItem } from "@/components/ui/carousel";
 
 import Image from "next/image";
-const DisplayActeurCarousel = ({
+const TheatreActeurCard = ({
   name,
   desc,
   src,
@@ -41,4 +41,4 @@ const DisplayActeurCarousel = ({
   );
 };
 
-export default DisplayActeurCarousel;
+export default TheatreActeurCard;

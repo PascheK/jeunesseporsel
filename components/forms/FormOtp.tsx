@@ -1,6 +1,6 @@
-import React from "react";
+import { useState } from "react";
 
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -20,31 +20,52 @@ import {
 } from "@/components/ui/input-otp";
 
 const FormSchema = z.object({
-  pin: z.string().min(6, {
-    message: "Your one-time password must be 6 characters."
+  codeOTP: z.string().min(6, {
+    message: "Le code que vous avez reçu par mail doit contenir au minimum 6 caractères."
   })
 });
-const FormOtp = () => {
+const FormOtp = (inscritData: modifyInscritProps) => {
+  const [isLoading, setIsLoading] = useState(false);
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      pin: ""
+      codeOTP: ""
     }
   });
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data);
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+   
+    const values = { ...data, method: "modifiyInscrit", ...inscritData };
+    console.log(values);
+    setIsLoading(true);
+    await fetch("api/inscrits", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(values)
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log("response ok");
+        } else {
+          console.log("response not ok");
+        }
+      })
+      .finally(() => setIsLoading(false));
+
+    console.log(data + " | Modification de l'inscription");
   }
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
         <FormField
           control={form.control}
-          name="pin"
+          name="codeOTP"
           render={({ field }) => (
             <FormItem>
               <FormLabel>One-Time Password</FormLabel>
               <FormControl>
-                <InputOTP maxLength={6} {...field}>
+                <InputOTP maxLength={6} {...field} disabled={isLoading}>
                   <InputOTPGroup>
                     <InputOTPSlot index={0} />
                     <InputOTPSlot index={1} />

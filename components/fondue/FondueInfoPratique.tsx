@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-const InfoPratiqueFondue = () => {
+const FondueInfoPratique = () => {
   return (
     <section className="section-info-pratique-fondue flex flex-col items-center justify-center bg-jeunesse-white">
       <h1 className="h1 ">Infos pratiques</h1>
@@ -54,4 +54,4 @@ const InfoPratiqueFondue = () => {
   );
 };
 
-export default InfoPratiqueFondue;
+export default FondueInfoPratique;

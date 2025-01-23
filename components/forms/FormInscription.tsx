@@ -1,6 +1,7 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -46,7 +47,16 @@ const formSchema = z.object({
     .max(200, { message: "Le nombre maximal est 200." })
 });
 
-const FormInscription = ({nbPlace, idEvent}: {nbPlace:number, idEvent:number}) => {
+const FormInscription = ({
+  onSubmitSuccess,
+  nbPlace,
+  idEvent
+}: {
+  onSubmitSuccess: (res: string) => void;
+  nbPlace: number;
+  idEvent: number;
+}) => {
+  const [isLoading, setIsLoading] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -58,20 +68,32 @@ const FormInscription = ({nbPlace, idEvent}: {nbPlace:number, idEvent:number}) =
     }
   });
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const data = {...values, idEvent};
+    const data = { ...values, idEvent, method: 'addInscrit' };
+    setIsLoading(true);
     await fetch("api/inscrits", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(data)
     })
-      .then((response) => response.json());
-    console.log(data);
+      .then((response) => {
+        if (response.ok) {
+          console.log("response ok");
+          form.reset();
+          onSubmitSuccess("success");
+        } else {
+          console.log("response not ok");
+        }
+      })
+      .finally(() => setIsLoading(false));
   }
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 animate-slide-in">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="animate-slide-in space-y-4  my-auto "
+      >
         <div className="flex flex-row gap-2  ">
           <FormField
             control={form.control}
@@ -80,7 +102,11 @@ const FormInscription = ({nbPlace, idEvent}: {nbPlace:number, idEvent:number}) =
               <FormItem className="w-full">
                 <FormLabel>Prénom</FormLabel>
                 <FormControl>
-                  <Input placeholder="Killian" {...field} />
+                  <Input
+                    disabled={isLoading}
+                    placeholder="Killian"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -93,7 +119,7 @@ const FormInscription = ({nbPlace, idEvent}: {nbPlace:number, idEvent:number}) =
               <FormItem className="w-full">
                 <FormLabel>Nom</FormLabel>
                 <FormControl>
-                  <Input placeholder="Pasche" {...field} />
+                  <Input disabled={isLoading} placeholder="Pasche" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -108,7 +134,11 @@ const FormInscription = ({nbPlace, idEvent}: {nbPlace:number, idEvent:number}) =
             <FormItem>
               <FormLabel>Mail</FormLabel>
               <FormControl>
-                <Input placeholder="killian.pasche7@gmail.com" {...field} />
+                <Input
+                  disabled={isLoading}
+                  placeholder="killian.pasche7@gmail.com"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -121,7 +151,11 @@ const FormInscription = ({nbPlace, idEvent}: {nbPlace:number, idEvent:number}) =
             <FormItem>
               <FormLabel>Téléphone</FormLabel>
               <FormControl>
-                <Input placeholder="+41763103560" {...field} />
+                <Input
+                  disabled={isLoading}
+                  placeholder="+41763103560"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -135,6 +169,7 @@ const FormInscription = ({nbPlace, idEvent}: {nbPlace:number, idEvent:number}) =
               <FormLabel>Nombre de place</FormLabel>
               <FormControl>
                 <Input
+                  disabled={isLoading}
                   type="number"
                   max={nbPlace}
                   min="1"
@@ -146,7 +181,9 @@ const FormInscription = ({nbPlace, idEvent}: {nbPlace:number, idEvent:number}) =
             </FormItem>
           )}
         />
-        <Button type="submit">Inscrire !</Button>
+        <Button type="submit" disabled={isLoading}>
+          Inscrire !
+        </Button>
       </form>
     </Form>
   );

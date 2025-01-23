@@ -1,14 +1,14 @@
 import React from 'react'
-import JeunesseSection from '@/components/JeunesseSection'
-import ComiteSection from '@/components/ComiteSection'
-import MembreSection from '@/components/MembreSection'
+import AccueilJeunesse from '@/components/accueil/AccueilJeunesse'
+import SocieteComite from '@/components/societe/SocieteComite'
+import SocieteMembre from '@/components/societe/SocieteMembre'
 
 const page = () => {
   return (
     <>
-    <JeunesseSection href='#comite-jeunesse'/>
-    <ComiteSection />
-    <MembreSection />
+    <AccueilJeunesse href='#comite-jeunesse'/>
+    <SocieteComite />
+    <SocieteMembre />
     </>
   )
 }

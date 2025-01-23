@@ -1,15 +1,14 @@
-import AccueilFondue from '@/components/AccueilFondue'
-import FondueEvenementDisplayer from '@/components/FondueEvenementDisplayer'
-import InfoPratiqueFondue from '@/components/InfoPratiqueFondue'
-import { Info } from 'lucide-react'
+import Fondue from '@/components/fondue/Fondue'
+import FondueEvenementDisplayer from '@/components/fondue/FondueEvenementDisplayer'
+import FondueInfoPratique from '@/components/fondue/FondueInfoPratique'
 import React  from 'react'
 
 const page = async () => {
 
   return (
     <>
-    <AccueilFondue />
-    <InfoPratiqueFondue />
+    <Fondue />
+    <FondueInfoPratique />
     <FondueEvenementDisplayer />
     </>
   )

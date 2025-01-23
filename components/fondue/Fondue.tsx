@@ -6,7 +6,7 @@ import { photoCarousel } from "@/constants";
 import CarouselImages from "@/components/CarouselImages";
 import Link from "next/link";
 
-const AccueilFondue = () => {
+const Fondue = () => {
   return (
     <section className="fondue ">
       <div className="m-12 mx-auto grid grid-cols-1 justify-items-center px-4 sm:gap-8 md:grid-cols-2 "  data-aos="fade-up">
@@ -29,4 +29,4 @@ const AccueilFondue = () => {
   );
 };
 
-export default AccueilFondue;
+export default Fondue;

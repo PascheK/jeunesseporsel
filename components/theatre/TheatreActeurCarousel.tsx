@@ -8,9 +8,9 @@ import Autoplay from "embla-carousel-autoplay";
 
 import { acteurCarousel  } from "@/constants"
 import React from "react";
-import DisplayActeurCarousel from "./DisplayActeurCarousel";
+import TheatreActeurCard from "@/components/theatre/TheatreActeurCard";
 
-const ActeurCarousel = () => {
+const TheatreActeurCarousel = () => {
 
   const plugin = React.useRef(
     Autoplay({ delay: 4000, stopOnInteraction: true })
@@ -41,7 +41,7 @@ const ActeurCarousel = () => {
               src: string;
              
             }) => (
-              <DisplayActeurCarousel
+              <TheatreActeurCard
                 {...{ name, desc, alt, src }}
                 
                 key={name}
@@ -54,4 +54,4 @@ const ActeurCarousel = () => {
   );
 };
 
-export default ActeurCarousel;
+export default TheatreActeurCarousel;
