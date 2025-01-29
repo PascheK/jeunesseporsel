@@ -31,7 +31,7 @@ export async function POST(request: Request): Promise<Response> {
           telephone: data.telephone
         };
         const res1 = await POSTInscrit(inscrit);
-        if (res1) console.log("res :", res1);
+        console.log("res1 :", res1);
         return Response.json({ status: 200, data });
       case "generateCode":
         const res2 = await generateCode(data.idInscrit);

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import {
   Dialog,
   DialogContent,
@@ -13,8 +13,17 @@ import { cn } from "@/lib/utils";
 
 import FormInscription from "@/components/forms/FormInscription";
 import FormModification from "@/components/forms/FormModification";
+import { EventReloaderContext } from "./FondueEvenementDisplayer";
 
 const Evenement = (evenement: Evenements) => {
+
+
+  const eventReloaderContext = useContext(EventReloaderContext);
+  if (!eventReloaderContext) {
+    throw new Error("EventReloaderContext must be used within a EventReloaderProvider");
+  }
+  const { setReloadEvents } = eventReloaderContext;
+
   const [menu, setMenu] = useState("inscrition");
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
@@ -22,6 +31,8 @@ const Evenement = (evenement: Evenements) => {
   const handleFormSuccess = (res: string) => {
     switch (res) {
       case "success":
+        setIsDialogOpen(false); // Fermer le Dialog après une soumission réussie
+        setReloadEvents(true)
         console.log("success");
         break;
       case "error":
@@ -30,7 +41,6 @@ const Evenement = (evenement: Evenements) => {
       default:
         break;
     }
-    setIsDialogOpen(false); // Fermer le Dialog après une soumission réussie
   };
   useEffect(() => {
     console.log(menu);

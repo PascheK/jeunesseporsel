@@ -37,8 +37,11 @@ export const POSTInscrit = async (inscrit : Inscrit) => {
       body: JSON.stringify(inscrit),
     })
     if (res) {
-     
-      console.log(res)
+      const data = await res.json();
+      if(data.status !== 200)
+        console.log(data.message)
+        //throw new Error(data.message)
+      
       return null;
     }
     return null;
@@ -82,7 +85,6 @@ export const PUTInscrit = async (inscritData: modifyInscrit) => {
     if (!inscritData || Object.values(inscritData).some(value => value === null || value === '')) {
       throw new Error('Des champs n\'ont pas été remplis');
     }
-    console.log('inscritData :', inscritData)
     const res = await fetch(process.env.URL+'inscrit/modifyNbPlaceForInscrit', {
       method: 'PUT',
       headers: {
