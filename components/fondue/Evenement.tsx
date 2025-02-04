@@ -14,13 +14,15 @@ import { cn } from "@/lib/utils";
 import FormInscription from "@/components/forms/FormInscription";
 import FormModification from "@/components/forms/FormModification";
 import { EventReloaderContext } from "./FondueEvenementDisplayer";
+import { useToast } from "@/hooks/use-toast";
 
 const Evenement = (evenement: Evenements) => {
-
-
+  const { toast } = useToast();
   const eventReloaderContext = useContext(EventReloaderContext);
   if (!eventReloaderContext) {
-    throw new Error("EventReloaderContext must be used within a EventReloaderProvider");
+    throw new Error(
+      "EventReloaderContext must be used within a EventReloaderProvider"
+    );
   }
   const { setReloadEvents } = eventReloaderContext;
 
@@ -28,15 +30,23 @@ const Evenement = (evenement: Evenements) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const { nom, date, jour, nbPlace } = evenement;
-  const handleFormSuccess = (res: string) => {
+  const handleFormSuccess = (res: string, message: string | null) => {
     switch (res) {
       case "success":
         setIsDialogOpen(false); // Fermer le Dialog après une soumission réussie
-        setReloadEvents(true)
+        setReloadEvents(true);
+        toast({
+          title: "Inscription réussie",
+          description: message
+        });
         console.log("success");
         break;
       case "error":
-        console.log("error");
+        setIsDialogOpen(false); // Fermer le Dialog après une soumission réussie
+        toast({
+          title: "Un problème est survenu !",
+          description: message
+        });
         break;
       default:
         break;
@@ -97,12 +107,13 @@ const Evenement = (evenement: Evenements) => {
                   )}
                 >
                   {menu === "inscrition" ? (
-                    <FormInscription nbPlace={nbPlace} idEvent={evenement.id} onSubmitSuccess={handleFormSuccess} />
-                  ) : (
-                    <FormModification
+                    <FormInscription
                       nbPlace={nbPlace}
-                      
+                      idEvent={evenement.id}
+                      onSubmitSuccess={handleFormSuccess}
                     />
+                  ) : (
+                    <FormModification nbPlace={nbPlace} />
                   )}
                 </div>
               </div>

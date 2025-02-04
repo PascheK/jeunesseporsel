@@ -25,7 +25,7 @@ export const getInscrits = async () => {
 };
 
 export const POSTInscrit = async (inscrit : Inscrit) => {
-  try{
+ 
     if (!inscrit || Object.values(inscrit).some(value => value === null || value === '')) {
       throw new Error('Des champs n\'ont pas été remplis');
     }
@@ -36,20 +36,19 @@ export const POSTInscrit = async (inscrit : Inscrit) => {
       },
       body: JSON.stringify(inscrit),
     })
+    console.log('Backend | res :', res)
+    console.log('====================================================================================================')
     if (res) {
       const data = await res.json();
+      console.log('Backend | data :', data)
+      console.log('====================================================================================================')
       if(data.status !== 200)
-        console.log(data.message)
-        //throw new Error(data.message)
-      
-      return null;
-    }
-    return null;
+        throw new Error(data.message)
 
-  }catch(e){
-    console.log('error :', e)
-    return Response.json({status: 500, 'error': e});
-  }
+      return data;
+    }else{
+      throw new Error('Erreur lors de l\'ajout de l\'inscrit')
+    }
 };
 
 export const generateCode = async (idInscrit: number) => {

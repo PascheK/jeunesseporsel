@@ -4,6 +4,8 @@ import {
   POSTInscrit,
   PUTInscrit
 } from "@/lib/inscrit.utils";
+import { NextResponse } from "next/server";
+
 
 export async function GET(): Promise<Response> {
   try {
@@ -31,8 +33,10 @@ export async function POST(request: Request): Promise<Response> {
           telephone: data.telephone
         };
         const res1 = await POSTInscrit(inscrit);
-        console.log("res1 :", res1);
-        return Response.json({ status: 200, data });
+        return NextResponse.json(
+          { message: res1.message },
+          { status: 200 }
+        );
       case "generateCode":
         const res2 = await generateCode(data.idInscrit);
         console.log("res :", res2);
@@ -42,8 +46,17 @@ export async function POST(request: Request): Promise<Response> {
         return Response.json({ status: 500, error: "method not found" });
     }
   } catch (e) {
-    console.log("error :", e);
-    return Response.json({ status: 500, error: e });
+    if (e instanceof Error) {
+      return NextResponse.json(
+        { message: e.message },
+        { status: 500 }
+      );
+    } else {
+      return NextResponse.json(
+        { message: "An unknown error occurred" },
+        { status: 500 }
+      );
+    }
   }
 }
 

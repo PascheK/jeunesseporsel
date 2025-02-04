@@ -52,7 +52,7 @@ const FormInscription = ({
   nbPlace,
   idEvent
 }: {
-  onSubmitSuccess: (res: string) => void;
+  onSubmitSuccess: (res: string, message: string | null) => void;
   nbPlace: number;
   idEvent: number;
 }) => {
@@ -68,31 +68,40 @@ const FormInscription = ({
     }
   });
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const data = { ...values, idEvent, method: 'addInscrit' };
+    const data = { ...values, idEvent, method: "addInscrit" };
     setIsLoading(true);
-    await fetch("api/inscrits", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-      .then((response) => {
-        if (response.ok) {
-          console.log("response ok");
-          form.reset();
-          onSubmitSuccess("success");
-        } else {
-          console.log("response not ok");
-        }
-      })
-      .finally(() => setIsLoading(false));
+    try {
+      const response = await fetch("/api/inscrits", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      console.log("Response :", response);
+
+      if (!response.ok) {
+        // Récupérer le message d'erreur s'il existe
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || `Erreur ${response.status}`);
+      }
+      const successData = await response.json().catch(() => ({}));
+
+      console.log("Response ok");
+      form.reset();
+      onSubmitSuccess("success", successData.message);
+    } catch (error) {
+      onSubmitSuccess("error", error instanceof Error ? error.message : "Unknown error");
+    } finally {
+      setIsLoading(false);
+    }
   }
   return (
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="animate-slide-in space-y-4  my-auto "
+        className="animate-slide-in my-auto space-y-4 "
       >
         <div className="flex flex-row gap-2  ">
           <FormField
