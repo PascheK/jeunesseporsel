@@ -118,7 +118,7 @@ const FormMail = () => {
                 <Input
                   placeholder="Votre nom..."
                   {...field}
-                  className="w-full rounded-md border border-gray-300 p-3 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="w-full rounded-md border border-gray-300 p-3 shadow-xs focus:border-blue-500 focus:ring-blue-500"
                 />
               </FormControl>
               <FormMessage className="mt-1 text-sm text-red-600" />
@@ -138,7 +138,7 @@ const FormMail = () => {
                 <Input
                   placeholder="Votre prénom..."
                   {...field}
-                  className="w-full rounded-md border border-gray-300 p-3 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="w-full rounded-md border border-gray-300 p-3 shadow-xs focus:border-blue-500 focus:ring-blue-500"
                 />
               </FormControl>
               <FormMessage className="mt-1 text-sm text-red-600" />
@@ -159,7 +159,7 @@ const FormMail = () => {
                   type="email"
                   placeholder="Votre mail..."
                   {...field}
-                  className="w-full rounded-md border border-gray-300 p-3 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="w-full rounded-md border border-gray-300 p-3 shadow-xs focus:border-blue-500 focus:ring-blue-500"
                 />
               </FormControl>
               <FormMessage className="mt-1 text-sm text-red-600" />
@@ -179,7 +179,7 @@ const FormMail = () => {
                 <Input
                   placeholder="Sujet"
                   {...field}
-                  className="w-full rounded-md border border-gray-300 p-3 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="w-full rounded-md border border-gray-300 p-3 shadow-xs focus:border-blue-500 focus:ring-blue-500"
                 />
               </FormControl>
               <FormMessage className="mt-1 text-sm text-red-600" />
@@ -199,7 +199,7 @@ const FormMail = () => {
                 <Textarea
                   placeholder="Votre message..."
                   {...field}
-                  className="min-h-[150px] w-full rounded-md border border-gray-300 p-3 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="min-h-[150px] w-full rounded-md border border-gray-300 p-3 shadow-xs focus:border-blue-500 focus:ring-blue-500"
                 />
               </FormControl>
               <FormMessage className="mt-1 text-sm text-red-600" />
@@ -209,7 +209,7 @@ const FormMail = () => {
         {/* Bouton d'envoi */}
         <div className="col-span-2 flex justify-center">
           <Button
-            className="rounded-md bg-blue-600 px-6 py-3 font-bold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded-md bg-blue-600 px-6 py-3 font-bold text-white hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             disabled={isLoading}
             type="submit"
           >

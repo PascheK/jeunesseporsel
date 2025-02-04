@@ -1,6 +1,447 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --background-image-hero-bannier: url('/assets/images/jeunesse_mai.jpg');
+
+  --color-jeunesse: #0a0908;
+  --color-jeunesse-white: #f1f1f1;
+  --color-jeunesse-navbar: #f8f9fa;
+
+  --color-brand-100: #ea6365;
+  --color-brand-200: #665687;
+  --color-brand-300: #6b4d57;
+  --color-brand-400: #054a91;
+  --color-brand-500: #264027;
+  --color-brand-600: #c4b7cb;
+  --color-brand-700: #6f8ab7;
+  --color-brand-800: #513c2c;
+  --color-brand-900: #e5dada;
+  --color-brand: #b7161c;
+
+  --color-theatre-100: #604032;
+  --color-theatre-200: #604031;
+  --color-theatre-300: #111827;
+  --color-theatre: #b7161c;
+
+  --color-error: #b80000;
+
+  --color-success-100: #00b800;
+  --color-success-200: #b2f5ea;
+  --color-success: #00c48c;
+
+  --color-green: #3dd9b3;
+
+  --color-blue-50: #eff6ff;
+  --color-blue-100: #dbeafe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-blue-400: #60a5fa;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-800: #1e40af;
+  --color-blue-900: #1e3a8a;
+  --color-blue: #56b8ff;
+
+  --color-red-50: #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-200: #fecaca;
+  --color-red-300: #fca5a5;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
+  --color-red-800: #991b1b;
+  --color-red-900: #7f1d1d;
+  --color-red: #ff7474;
+
+  --color-pink: #eea8fd;
+  --color-orange: #f9ab72;
+
+  --color-light-100: #333f4e;
+  --color-light-200: #a3b2c7;
+  --color-light-300: #f2f5f9;
+  --color-light-400: #f2f4f8;
+
+  --color-dark-100: #04050c;
+  --color-dark-200: #131524;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --font-poppins: var(--font-poppins);
+
+  --shadow-drop-1: 0px 10px 30px 0px rgba(66, 71, 97, 0.1);
+  --shadow-drop-2: 0 8px 30px 0 rgba(65, 89, 214, 0.3);
+  --shadow-drop-3: 0 8px 30px 0 rgba(65, 89, 214, 0.1);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-caret-blink: caret-blink 1.25s ease-out infinite;
+  --animate-slide-in: slide-in 0.5s ease-out forwards;
+  --animate-slide-out: slide-out 0.5s ease-out forwards;
+
+  --transition-property-height: height;
+
+  @keyframes caret-blink {
+    0%,
+    70%,
+    100% {
+      opacity: 1;
+    }
+    20%,
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes slide-in {
+    0% {
+      transform: translateX(-50px);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    95% {
+      opacity: 100;
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slide-out {
+    0% {
+      transform: translateX(0);
+    }
+    20% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility h1 {
+  /* ===== TYPOGRAPHY */
+  @apply lg:text-[45px] md:text-[33px] md:leading-[33px] lg:leading-[45px] text-[24px] leading-[20px] uppercase font-bold;
+}
+
+@utility h2 {
+  @apply sm:text-[24px] sm:leading-[36px] text-[20px] font-bold;
+}
+
+@utility h3 {
+  @apply text-[20px] leading-[28px] font-semibold;
+}
+
+@utility h4 {
+  @apply sm:text-[25px] text-[18px] sm:leading-[30px]  font-semibold;
+}
+
+@utility h5 {
+  @apply text-[16px] leading-[24px] font-semibold;
+}
+
+@utility subtitle-1 {
+  @apply text-[16px] leading-[24px] font-medium;
+}
+
+@utility subtitle-2 {
+  @apply text-[14px] leading-[20px] font-semibold;
+}
+
+@utility body-1 {
+  @apply text-[16px] leading-[24px] font-normal;
+}
+
+@utility body-2 {
+  @apply text-[14px] leading-[20px] font-normal;
+}
+
+@utility button {
+  @apply text-[14px] leading-[20px] font-medium;
+}
+
+@utility caption {
+  @apply text-[12px] leading-[16px] font-normal;
+  .acteur-presentation & {
+    @apply text-[17px]! leading-[23px]!;
+  }
+}
+
+@utility overline {
+  @apply text-[10px] leading-[14px] font-normal;
+}
+
+@utility navbar {
+  /* ===== NAVBAR */
+  @apply remove-scrollbar! lg:h-130! h-50! w-full! flex! flex-row! overflow-auto! lg:px-5!  lg:py-7! sm:flex! items-center!;
+}
+
+@utility container {
+  /* ===== HELPER CLASSES */
+  @apply mx-auto max-w-7xl px-5;
+}
+
+@utility primary-btn {
+  @apply bg-brand! hover:bg-brand-100! transition-all! rounded-full! button!;
+}
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility transition-bigger {
+  @apply transition! ease-in-out! delay-150! hover:-translate-y-1! hover:scale-110! duration-300!;
+}
+
+@utility nav-icon {
+  /* Sidebar & MobileNavigation */
+  @apply w-6! filter! invert! opacity-25!;
+}
+
+@utility nav-icon-active {
+  @apply invert-0! opacity-100!;
+}
+
+@utility main-content {
+  /* =====  STYLE CLASSES */
+
+  /* Root Layout */
+  @apply remove-scrollbar! h-full! flex-1! overflow-auto! bg-light-400!;
+}
+
+@utility header {
+  /* Header */
+  @apply hidden! items-center!  gap-5! p-5! sm:flex! lg:py-7! xl:gap-10! w-full! bg-jeunesse-navbar! border-b-2! z-50!;
+}
+
+@utility header-wrapper {
+  @apply flex-center! min-w-fit! gap-4! w-full! justify-end!;
+}
+
+@utility header-wrapper-item {
+  @apply flex! text-jeunesse! gap-4! rounded-xl!  items-center! h5! lg:px-5! h-[52px]! lg:rounded-full! hover:text-brand! hover:scale-110! duration-300! transition! ease-in-out! delay-150!;
+  &.active {
+    @apply text-brand!;
+  }
+}
+
+@utility active {
+  &.header-wrapper-item {
+    @apply text-brand!;
+  }
+  &.mobile-nav-item {
+    @apply text-brand!;
+  }
+}
+
+@utility mobile-header {
+  /* Mobile Navigation */
+  @apply flex! h-[60px]! justify-between! px-5! sm:hidden! bg-jeunesse-navbar!;
+}
+
+@utility mobile-nav {
+  @apply h5! flex-1! gap-1! text-brand!;
+}
+
+@utility mobile-nav-list {
+  @apply flex! flex-1! flex-col! gap-4!;
+}
+
+@utility mobile-nav-item {
+  @apply flex! text-light-100! gap-4! w-full! justify-start! items-center! h5! px-6! h-[52px]! rounded-full! hover:text-brand! hover:scale-110! duration-300! transition! ease-in-out! delay-150!;
+  &.active {
+    @apply text-brand!;
+  }
+}
+
+@utility footer {
+  /* Footer */
+  @apply flex! flex-col! gap-5! w-full! justify-center! antialiased! bg-jeunesse! bg-opacity-95!  text-jeunesse-white! items-center!;
+}
+
+@utility section {
+  /* Theatre Section */
+  @apply flex! flex-col! gap-5! w-full! py-[2.5rem]! justify-center! antialiased!;
+}
+
+@utility theatre {
+  @apply section! bg-jeunesse! h-[100%]! sm:h-full!;
+  & .title {
+    @apply text-jeunesse-white! lg:text-[53px]! md:text-[33px]! md:leading-[33px]! lg:leading-[52px]! text-[20px]! leading-[20px]! font-bold!;
+  }
+  & .subtitle {
+    @apply text-jeunesse-white! lg:text-[25px]! lg:leading-[35px]! font-medium!  md:text-[20px]! md:leading-[33px]!   text-[15px]! leading-[10px]!;
+  }
+  & .dates {
+    @apply text-jeunesse-white! lg:text-[25px]! lg:leading-[35px]! font-medium!  md:text-[20px]! md:leading-[33px]!   text-[15px]! leading-[10px]!;
+  }
+}
+
+@utility title {
+  .theatre & {
+    @apply text-jeunesse-white! lg:text-[53px]! md:text-[33px]! md:leading-[33px]! lg:leading-[52px]! text-[20px]! leading-[20px]! font-bold!;
+  }
+}
+
+@utility subtitle {
+  .theatre & {
+    @apply text-jeunesse-white! lg:text-[25px]! lg:leading-[35px]! font-medium!  md:text-[20px]! md:leading-[33px]!   text-[15px]! leading-[10px]!;
+  }
+}
+
+@utility dates {
+  .theatre & {
+    @apply text-jeunesse-white! lg:text-[25px]! lg:leading-[35px]! font-medium!  md:text-[20px]! md:leading-[33px]!   text-[15px]! leading-[10px]!;
+  }
+}
+
+@utility zoomed-image-container {
+  @apply fixed! top-0! left-0! w-full! h-full! bg-black! bg-opacity-90!  flex! justify-center! items-center! z-50! cursor-pointer!;
+}
+
+@utility carousel-zoomed-image {
+  @apply w-[90%]! h-[90%]! m-auto!;
+}
+
+@utility presentation {
+  @apply section! bg-jeunesse-white!;
+
+  & .guillmets {
+    @apply lg:text-[100px]! md:text-[33px]! md:leading-[33px]! lg:leading-[52px]! text-[20px]! leading-[20px]! font-bold! opacity-75!;
+  }
+  & .synopsis {
+    @apply sm:text-[20px]! text-[13px]! sm:leading-[30px]! leading-tight! italic! font-light! tracking-wider!;
+  }
+}
+
+@utility guillmets {
+  .presentation & {
+    @apply lg:text-[100px]! md:text-[33px]! md:leading-[33px]! lg:leading-[52px]! text-[20px]! leading-[20px]! font-bold! opacity-75!;
+  }
+}
+
+@utility synopsis {
+  .presentation & {
+    @apply sm:text-[20px]! text-[13px]! sm:leading-[30px]! leading-tight! italic! font-light! tracking-wider!;
+  }
+}
+
+@utility info-pratique {
+  @apply section!  bg-jeunesse-white!;
+}
+
+@utility cards {
+  @apply flex! flex-col! items-center! m-auto! gap-4! w-4/5! bg-theatre! bg-opacity-60! h-full! text-jeunesse-white! p-4! rounded-lg! shadow-xl! transition! ease-in-out! delay-150! hover:-translate-y-1! hover:scale-110! duration-300!;
+}
+
+@utility acteur-presentation {
+  @apply section! bg-jeunesse-white!;
+  & .caption {
+    @apply text-[17px]! leading-[23px]!;
+  }
+}
+
+@utility reservation-theatre {
+  @apply section! bg-jeunesse-white! break-words!;
+}
+
+@utility actorCard {
+  @apply flex h-[350px] flex-col items-center rounded-lg p-4 text-white opacity-80 shadow-inner shadow-2xl;
+  &:hover .actorDesc {
+    @apply opacity-100! transition-all! delay-1000!;
+  }
+}
+
+@utility actorDesc {
+  .actorCard:hover & {
+    @apply opacity-100! transition-all! delay-1000!;
+  }
+}
+
+@utility contact-section {
+  @apply section;
+}
+
+@utility jeunesse-section {
+  @apply section!;
+}
+
+@utility comite-section {
+  @apply section!;
+}
+
+@utility membre-section {
+  @apply section!;
+}
+
+@utility fondue {
+  @apply section! bg-jeunesse! h-[100%]! sm:h-full!;
+}
+
+@utility fondue-section {
+  @apply section!;
+}
+
+@utility section-info-pratique-fondue {
+  @apply section!;
+}
 
 @layer base {
   * {
@@ -85,205 +526,6 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
-
-
-@layer utilities {
- 
-  /* ===== TYPOGRAPHY */
-  .h1 {
-    @apply lg:text-[45px] md:text-[33px] md:leading-[33px] lg:leading-[45px] text-[24px] leading-[20px] uppercase font-bold;
-  }
-  .h2 {
-    @apply sm:text-[24px] sm:leading-[36px] text-[20px] font-bold;
-  }
-  .h3 {
-    @apply text-[20px] leading-[28px] font-semibold;
-  }
-  .h4 {
-    @apply sm:text-[25px] text-[18px] sm:leading-[30px]  font-semibold;
-  }
-  .h5 {
-    @apply text-[16px] leading-[24px] font-semibold;
-  }
-  .subtitle-1 {
-    @apply text-[16px] leading-[24px] font-medium;
-  }
-  .subtitle-2 {
-    @apply text-[14px] leading-[20px] font-semibold;
-  }
-  .body-1 {
-    @apply text-[16px] leading-[24px] font-normal;
-  }
-  .body-2 {
-    @apply text-[14px] leading-[20px] font-normal;
-  }
-  .button {
-    @apply text-[14px] leading-[20px] font-medium;
-  }
-  .caption {
-    @apply text-[12px] leading-[16px] font-normal;
-  }
-  .overline {
-    @apply text-[10px] leading-[14px] font-normal;
-  }
-
-  /* ===== NAVBAR */
-  .navbar {
-    @apply remove-scrollbar lg:h-[130] h-[50] w-full flex flex-row overflow-auto lg:px-5  lg:py-7 sm:flex items-center  !important;
-  }
-
-  /* ===== HELPER CLASSES */
-  .container {
-    @apply mx-auto max-w-7xl px-5;
-  }
-  .primary-btn {
-    @apply bg-brand hover:bg-brand-100 transition-all rounded-full button !important;
-  }
-  .flex-center {
-    @apply flex items-center justify-center;
-  }
-  .transition-bigger{
-    @apply transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 !important
-  }
-
-
-  /* Sidebar & MobileNavigation */
-  .nav-icon {
-    @apply w-6 filter invert opacity-25 !important;
-  }
-  .nav-icon-active {
-    @apply invert-0 opacity-100 !important;
-  }
-
-  /* =====  STYLE CLASSES */
-
-  /* Root Layout */
-  .main-content {
-    @apply remove-scrollbar h-full flex-1 overflow-auto bg-light-400 !important;
-  }
-
-  /* Header */
-  .header {
-    @apply hidden items-center  gap-5 p-5 sm:flex lg:py-7 xl:gap-10 w-full bg-jeunesse-navbar border-b-2 z-50 !important;
-  }
-  .header-wrapper {
-    @apply flex-center min-w-fit gap-4 w-full justify-end !important;
-  }
-
-  .header-wrapper-item {
-    @apply flex text-jeunesse gap-4 rounded-xl  items-center h5 lg:px-5 h-[52px] lg:rounded-full hover:text-brand hover:scale-110 duration-300 transition ease-in-out delay-150 !important;
-  }
-  .header-wrapper-item.active {
-    @apply text-brand !important;
-  }
-
-  /* Mobile Navigation */
-  .mobile-header {
-    @apply flex h-[60px] justify-between px-5 sm:hidden bg-jeunesse-navbar !important;
-  }
-
-  .mobile-nav {
-    @apply h5 flex-1 gap-1 text-brand !important;
-  }
-  .mobile-nav-list {
-    @apply flex flex-1 flex-col gap-4 !important;
-  }
-  .mobile-nav-item {
-    @apply flex text-light-100 gap-4 w-full justify-start items-center h5 px-6 h-[52px] rounded-full hover:text-brand hover:scale-110 duration-300 transition ease-in-out delay-150 !important;
-  }
-  .mobile-nav-item.active {
-    @apply text-brand !important;
-  }
-  /* Footer */
-  .footer {
-    @apply flex flex-col gap-5 w-full justify-center antialiased bg-jeunesse bg-opacity-95  text-jeunesse-white items-center !important;
-  }
-  /* Theatre Section */
-
-  .section{
-    @apply flex flex-col gap-5 w-full py-[2.5rem] justify-center antialiased   !important;
-  }
-
-  .theatre {
-    @apply section bg-jeunesse h-[100%] sm:h-full !important;
-  }
-  .theatre .title {
-    @apply text-jeunesse-white lg:text-[53px] md:text-[33px] md:leading-[33px] lg:leading-[52px] text-[20px] leading-[20px] font-bold !important;
-  }
-  .theatre .subtitle {
-    @apply text-jeunesse-white lg:text-[25px] lg:leading-[35px] font-medium  md:text-[20px] md:leading-[33px]   text-[15px] leading-[10px] !important;
-  }
-  .theatre .dates {
-    @apply text-jeunesse-white lg:text-[25px] lg:leading-[35px] font-medium  md:text-[20px] md:leading-[33px]   text-[15px] leading-[10px] !important;
-  }
-  .zoomed-image-container {
-    @apply fixed top-0 left-0 w-full h-full bg-black bg-opacity-90  flex justify-center items-center z-50 cursor-pointer !important;
-  }
-  .carousel-zoomed-image {
-    @apply w-[90%] h-[90%] m-auto !important;
-  }
-
-  .presentation {
-    @apply section bg-jeunesse-white !important;
-  }
-
-
-  .presentation .guillmets {
-    @apply lg:text-[100px] md:text-[33px] md:leading-[33px] lg:leading-[52px] text-[20px] leading-[20px] font-bold opacity-75 !important;
-  }
-  .presentation .synopsis {
-    @apply sm:text-[20px] text-[13px] sm:leading-[30px] leading-tight italic font-light tracking-wider   !important;
-  }
-  .info-pratique{
-    @apply section  bg-jeunesse-white !important; 
-  }
-  
-   .cards {
-    @apply flex flex-col items-center m-auto gap-4 w-4/5 bg-theatre bg-opacity-60 h-full text-jeunesse-white p-4 rounded-lg shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 !important;
-  }
-  .acteur-presentation{
-    @apply section bg-jeunesse-white !important; 
-  }
-  .acteur-presentation .caption{
-    @apply text-[17px] leading-[23px] !important;
-  }
-
-  .reservation-theatre{
-    @apply section bg-jeunesse-white break-words !important; 
-
-  }
-  .actorCard{
-    @apply flex h-[350px] flex-col items-center rounded-lg p-4 text-white opacity-80 shadow-inner shadow-2xl;
-  }
-  .actorCard:hover .actorDesc{
-    @apply opacity-100 transition-all delay-1000 !important;
-  }
-  .contact-section {
-    @apply section;
-  }
-
-
-  .jeunesse-section{
-    @apply section !important;
-  }
-  .comite-section{
-    @apply section !important;
-  }
-  .membre-section{
-    @apply section !important;
-  }
-  .fondue{
-
-      @apply section bg-jeunesse h-[100%] sm:h-full !important;    
-  }
-  .fondue-section{
-    @apply section !important;
-  }
-  .section-info-pratique-fondue{
-    @apply section !important;
-  }
-
 }
 
 @layer base {
