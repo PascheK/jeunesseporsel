@@ -15,7 +15,7 @@ import {
   FormMessage
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-
+import { useEventDialog } from "@/hooks/use-eventDialog";
 const regex = /^\+?[1-9][0-9]{7,14}$/;
 const mailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
@@ -48,11 +48,9 @@ const formSchema = z.object({
 });
 
 const FormInscription = ({
-  onSubmitSuccess,
   nbPlace,
   idEvent
 }: {
-  onSubmitSuccess: (res: string, message: string | null) => void;
   nbPlace: number;
   idEvent: number;
 }) => {
@@ -67,9 +65,11 @@ const FormInscription = ({
       nbPlace: "1"
     }
   });
+  const eventDialog = useEventDialog();
+  const handleFormResult = eventDialog ? eventDialog.handleFormResult : () => {};
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const data = { ...values, idEvent, method: "addInscrit" };
-    setIsLoading(true);
+    
     try {
       const response = await fetch("/api/inscrits", {
         method: "POST",
@@ -90,12 +90,13 @@ const FormInscription = ({
 
       console.log("Response ok");
       form.reset();
-      onSubmitSuccess("success", successData.message);
+      handleFormResult("success", successData.message);
     } catch (error) {
-      onSubmitSuccess("error", error instanceof Error ? error.message : "Unknown error");
+      handleFormResult("error", error instanceof Error ? error.message : "Unknown error");
     } finally {
       setIsLoading(false);
     }
+    
   }
   return (
     <Form {...form}>
