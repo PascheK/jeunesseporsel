@@ -1,6 +1,6 @@
 import React from "react";
 
-const PresentationTheatreSection = () => {
+const TheatreSynopsys = () => {
   return (
     <section className="presentation" >
       <div className=" flex w-auto flex-col m-auto sm:w-4/5 gap-5 " >
@@ -38,4 +38,4 @@ const PresentationTheatreSection = () => {
   );
 };
 
-export default PresentationTheatreSection;
+export default TheatreSynopsys;

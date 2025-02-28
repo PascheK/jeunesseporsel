@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReservationTheatre = () => {
+const TheatreReservation = () => {
   return (
     <section className="reservation-theatre" id="reservation-theatre">
       <div className="flex w-full flex-col items-center justify-between gap-8">
@@ -69,4 +69,4 @@ const ReservationTheatre = () => {
   );
 };
 
-export default ReservationTheatre;
+export default TheatreReservation;

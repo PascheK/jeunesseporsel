@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { DEFAULT_CIPHERS } from "tls";
 
 const config: Config = {
   darkMode: ["class"],
@@ -36,10 +37,39 @@ const config: Config = {
           "200": "#604031",
           "300": "#111827"
         },
-        red: "#FF7474",
         error: "#b80000",
+        success: {
+          DEFAULT: "#00C48C",
+          "100": "#00b800",
+          "200": "#B2F5EA",
+        },
         green: "#3DD9B3",
-        blue: "#56B8FF",
+        blue: {
+          DEFAULT: '#56B8FF',
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
+        },
+        red: {
+          DEFAULT: '#FF7474',
+          50: '#fef2f2',
+          100: '#fee2e2',
+          200: '#fecaca',
+          300: '#fca5a5',
+          400: '#f87171',
+          500: '#ef4444',
+          600: '#dc2626',
+          700: '#b91c1c',
+          800: '#991b1b',
+          900: '#7f1d1d',
+        },
         pink: "#EEA8FD",
         orange: "#F9AB72",
         light: {
@@ -114,11 +144,45 @@ const config: Config = {
           "20%,50%": {
             opacity: "0"
           }
+        },
+        "slide-in": {
+          "0%": {
+            transform: "translateX(-50px)",
+            opacity: "0",
+          },
+          "20%": {
+            opacity: "0",
+          
+          },
+          "95%":{
+            opacity: "100",
+          },
+          "100%": {
+            transform: "translateX(0)"
+          }
+        },
+        "slide-out": {
+          "0%": {
+            transform: "translateX(0)",
+            
+          },
+          "20%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "0",
+            transform: "translateX(-50px)"
+          }
         }
       },
       animation: {
-        "caret-blink": "caret-blink 1.25s ease-out infinite"
-      }
+        "caret-blink": "caret-blink 1.25s ease-out infinite",
+        "slide-in": "slide-in 0.5s ease-out forwards",
+        "slide-out": "slide-out 0.5s ease-out forwards"
+      },
+      transitionProperty: {
+        'height': 'height'
+      },
     }
   },
   plugins: [require("tailwindcss-animate")]

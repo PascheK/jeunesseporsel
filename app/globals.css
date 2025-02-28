@@ -147,6 +147,7 @@
     @apply transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 !important
   }
 
+
   /* Sidebar & MobileNavigation */
   .nav-icon {
     @apply w-6 filter invert opacity-25 !important;
@@ -205,7 +206,7 @@
   }
 
   .theatre {
-    @apply section bg-jeunesse h-[130%] sm:h-full !important;
+    @apply section bg-jeunesse h-[100%] sm:h-full !important;
   }
   .theatre .title {
     @apply text-jeunesse-white lg:text-[53px] md:text-[33px] md:leading-[33px] lg:leading-[52px] text-[20px] leading-[20px] font-bold !important;
@@ -238,7 +239,7 @@
     @apply section  bg-jeunesse-white !important; 
   }
   
-  .info-pratique .cards {
+   .cards {
     @apply flex flex-col items-center m-auto gap-4 w-4/5 bg-theatre bg-opacity-60 h-full text-jeunesse-white p-4 rounded-lg shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 !important;
   }
   .acteur-presentation{
@@ -258,6 +259,10 @@
   .actorCard:hover .actorDesc{
     @apply opacity-100 transition-all delay-1000 !important;
   }
+  .contact-section {
+    @apply section;
+  }
+
 
   .jeunesse-section{
     @apply section !important;
@@ -266,6 +271,16 @@
     @apply section !important;
   }
   .membre-section{
+    @apply section !important;
+  }
+  .fondue{
+
+      @apply section bg-jeunesse h-[100%] sm:h-full !important;    
+  }
+  .fondue-section{
+    @apply section !important;
+  }
+  .section-info-pratique-fondue{
     @apply section !important;
   }
 

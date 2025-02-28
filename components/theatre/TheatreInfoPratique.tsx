@@ -2,7 +2,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-const InfoPratiqueSection = () => {
+const TheatreInfoPratique = () => {
 
   return (
     <section className="info-pratique" id='info-pratique'>
@@ -30,4 +30,4 @@ const InfoPratiqueSection = () => {
   )
 }
 
-export default InfoPratiqueSection
+export default TheatreInfoPratique

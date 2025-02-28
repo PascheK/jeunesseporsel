@@ -1,8 +1,11 @@
 import React from 'react'
+import Contact  from '@/components/contact/Contact'
 
 const page = () => {
   return (
-    <div className='h-full bg-jeunesse text-xl text-jeunesse-white flex items-center justify-center'>En construction...</div>
+    <>
+    <Contact/>
+    </>
   )
 }
 

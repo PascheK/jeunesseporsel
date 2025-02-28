@@ -1,8 +1,16 @@
-import React from 'react'
+import Fondue from '@/components/fondue/Fondue'
+import FondueEvenementDisplayer from '@/components/fondue/FondueEvenementDisplayer'
+import FondueInfoPratique from '@/components/fondue/FondueInfoPratique'
+import React  from 'react'
 
-const page = () => {
+const page = async () => {
+
   return (
-    <div className='h-full bg-jeunesse text-xl text-jeunesse-white flex items-center justify-center'>En construction...</div>
+    <>
+    <Fondue />
+    <FondueInfoPratique />
+    <FondueEvenementDisplayer />
+    </>
   )
 }
 

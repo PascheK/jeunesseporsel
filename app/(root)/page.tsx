@@ -1,10 +1,10 @@
-import AccueilTheatre from "@/components/AccueilTheatre";
-import JeunesseSection from "@/components/JeunesseSection";
+import AccueilTheatre from "@/components/accueil/AccueilTheatre";
+import AccueilJeunesse from "@/components/accueil/AccueilJeunesse";
 
 const Home = () => {
   return (
     <>
-      <JeunesseSection href="#accueil-theatre" />
+      <AccueilJeunesse href="#accueil-theatre" />
       <AccueilTheatre />
     </>
   );
