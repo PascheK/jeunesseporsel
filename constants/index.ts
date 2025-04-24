@@ -125,13 +125,13 @@ export const membreJeunesse = [
     role: "Président",
   },
   {
-    nom: "Barbey",
-    prenom: "Nolan",
+    nom: "Pasche",
+    prenom: "Killian",
     role: "Vice-Président",
   },
   {
-    nom: "Pasche",
-    prenom: "Killian",
+    nom: "Dévaud",
+    prenom: "Alicia",
     role: "Secrétaire",
   },
   {
@@ -140,8 +140,8 @@ export const membreJeunesse = [
     role: "Caissière",
   },
   {
-    nom: "Dévaud",
-    prenom: "Alicia",
+    nom: "Dénervaud",
+    prenom: "Christophe",
     role: "5 ème membre",
   },
   {
@@ -149,10 +149,10 @@ export const membreJeunesse = [
     prenom: "Théo",
     role: "",
   },
-  {
-    nom: 'Bachmann',
-    prenom: 'Sarah',
-    role:'',
+    {
+    nom: "Barbey",
+    prenom: "Nolan",
+    role: "",
   },
   {
     nom: 'Bulliard',
@@ -199,11 +199,7 @@ export const membreJeunesse = [
     prenom: 'Delia',
     role:'',
   },
-  {
-    nom: 'Dénervaud',
-    prenom: 'Christophe',
-    role:'',
-  },
+
   {
     nom: 'Dénervaud',
     prenom: 'Jeanne',
@@ -299,16 +295,7 @@ export const membreJeunesse = [
     prenom: 'Xavier',
     role:'',
   },
-  {
-    nom: 'Sansonnens',
-    prenom: 'Lucas',
-    role:'',
-  },
-  {
-    nom: 'Staehli',
-    prenom: 'Bastien',
-    role:'',
-  },
+
   {
     nom: 'Tarres',
     prenom: 'Mathieu',
