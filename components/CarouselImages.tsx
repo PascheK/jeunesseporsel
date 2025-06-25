@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/carousel";
 
 import Image from "next/image";
+import { Search } from "lucide-react";
 
 const CarouselImages = ({ imageCarousel }: ImageTypeData) => {
   const plugin = React.useRef(
@@ -31,12 +32,7 @@ const CarouselImages = ({ imageCarousel }: ImageTypeData) => {
           {imageCarousel.map(({ alt, src }: { alt: string; src: string }) => (
             <CarouselItem key={alt} className="flex justify-center">
               <div onClick={() => openZoomedImage(src)} className="bg-jeunesse absolute flex size-full items-center justify-center  bg-opacity-55 opacity-0 transition-all hover:opacity-100">
-                <Image
-                  src="https://img.icons8.com/?size=100&id=34825&format=png&color=ffffff"
-                  alt="zoom"
-                  width="50"
-                  height="50"
-                />
+                <Search className="size-8 text-white" aria-hidden="true" />
               </div>
               <Image
                 src={src}
