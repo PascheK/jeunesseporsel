@@ -12,7 +12,7 @@ export const navItems = [
   {
     name: "Fondue",
     url: "/fondue",
-    isActive: false,
+    isActive: true,
   },
   {
     name: "Société",
@@ -153,7 +153,7 @@ export const membreJeunesse = [
     prenom: "Théo",
     role: "",
   },
-    {
+  {
     nom: "Barbey",
     prenom: "Nolan",
     role: "",
