@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/carousel";
 
 import Image from "next/image";
+import { Search } from "lucide-react";
 
 const CarouselImages = ({ imageCarousel }: ImageTypeData) => {
   const plugin = React.useRef(
