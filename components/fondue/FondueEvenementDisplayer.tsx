@@ -7,7 +7,7 @@ interface EventReloaderContextType {
   reloadEvents: boolean;
   setReloadEvents: (value: boolean) => void;
 }
-export const EventReloaderContext =  createContext<EventReloaderContextType | undefined>(undefined);
+export const EventReloaderContext = createContext<EventReloaderContextType | undefined>(undefined);
 
 const FondueEvenementDisplayer = () => {
   const [isDataEmpty, setIsDataEmpty] = useState<boolean>(true);
@@ -28,16 +28,16 @@ const FondueEvenementDisplayer = () => {
         setIsDataEmpty(true);
         console.error("Error fetching data:", error);
       });
-      setReloadEvents(false);
+    setReloadEvents(false);
   }, [reloadEvents]);
 
   return (
     <section className="fondue-section bg-jeunesse-white flex flex-col items-center justify-center">
       <h1 className=" h1 sm:ml-6">Réserver vos place !</h1>
-      <EventReloaderContext.Provider value={{reloadEvents, setReloadEvents}}>
+      <EventReloaderContext.Provider value={{ reloadEvents, setReloadEvents }}>
         {isDataEmpty ? (
-          <div className="flex items-center justify-center">
-            <p>data empty</p>
+          <div className="flex items-center justify-center h-32">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-jeunesse-orange"></div>
           </div>
         ) : (
           <>
