@@ -7,7 +7,7 @@ const FondueInfoPratique = () => {
     {
       icon: <Edit size={40} className="text-brand" />,
       title: "Comment réserver ?",
-      text: "Pour réserver votre place, rendez-vous sur notre site et remplissez le formulaire de réservation en ligne. Vous recevrez une confirmation par email. N’attendez pas, les places sont limitées !",
+      text: "Pour réserver votre place, rendez-vous sur notre site et remplissez le formulaire de réservation en ligne. Vous recevrez une confirmation par email. N’attendez pas, les places sont limitées !\n\nLes réservations par message sont également disponibles au 076 310 35 60.",
     },
     {
       icon: <MapPin size={40} className="text-brand" />,

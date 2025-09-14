@@ -12,11 +12,13 @@ const Home = () => {
       <AccueilJeunesse href="#accueil-theatre" />
 
       {/* Home section with logo and CTA */}
-
+      <FondueCtaSection />
       <HomeSection />
     </>
   );
 };
 export default Home;
 
-import HomeSection from "@/components/accueil/HomeSection";
+import HomeSection from "@/components/accueil/HomeSection";import Fondue from "@/components/fondue/Fondue";
+import FondueCtaSection from "@/components/accueil/FondueCtaSection";
+

@@ -35,12 +35,7 @@ const CarouselImages = ({ imageCarousel }: ImageTypeData) => {
                 onClick={() => openZoomedImage(src)}
                 className="bg-jeunesse absolute flex size-full items-center justify-center bg-opacity-55 opacity-0 transition-all hover:opacity-100 cursor-zoom-in z-10"
               >
-                <Image
-                  src="https://img.icons8.com/?size=100&id=34825&format=png&color=ffffff"
-                  alt="zoom"
-                  width={50}
-                  height={50}
-                />
+                <Search size={50} className="text-white drop-shadow-lg" />
               </div>
               <div className="relative w-full h-[60vw] min-h-[220px] max-h-[80vh] sm:h-[400px] md:h-[600px] lg:h-[800px] flex items-center justify-center">
                 <Image
