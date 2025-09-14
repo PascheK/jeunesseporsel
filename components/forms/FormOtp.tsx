@@ -25,7 +25,7 @@ const FormSchema = z.object({
   })
 });
 const FormOtp = (inscritData: modifyInscritProps) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -33,7 +33,7 @@ const FormOtp = (inscritData: modifyInscritProps) => {
     }
   });
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-   
+
     const values = { ...data, method: "modifiyInscrit", ...inscritData };
     console.log(values);
     setIsLoading(true);
@@ -56,35 +56,41 @@ const FormOtp = (inscritData: modifyInscritProps) => {
     console.log(data + " | Modification de l'inscription");
   }
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
-        <FormField
-          control={form.control}
-          name="codeOTP"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>One-Time Password</FormLabel>
-              <FormControl>
-                <InputOTP maxLength={6} {...field} disabled={isLoading}>
-                  <InputOTPGroup>
-                    <InputOTPSlot index={0} />
-                    <InputOTPSlot index={1} />
-                    <InputOTPSlot index={2} />
-                    <InputOTPSlot index={3} />
-                    <InputOTPSlot index={4} />
-                    <InputOTPSlot index={5} />
-                  </InputOTPGroup>
-                </InputOTP>
-              </FormControl>
+    <div className="flex justify-center items-center">
+      <div className="w-full">
+        <h2 className="text-2xl font-bold text-center mb-6 text-brand">Vérification du code</h2>
+        <p className="text-center text-gray-500 mb-4">Veuillez entrer le code reçu par email pour valider votre identité.</p>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 flex flex-col items-center">
+            <FormField
+              control={form.control}
+              name="codeOTP"
+              render={({ field }) => (
+                <FormItem className="mx-auto w-fit">
+                  <FormControl>
 
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+                    <InputOTP maxLength={6} {...field} disabled={isLoading}>
+                      <InputOTPGroup>
+                        <InputOTPSlot index={0} />
+                        <InputOTPSlot index={1} />
+                        <InputOTPSlot index={2} />
+                        <InputOTPSlot index={3} />
+                        <InputOTPSlot index={4} />
+                        <InputOTPSlot index={5} />
+                      </InputOTPGroup>
+                    </InputOTP>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit" className="w-full primary-btn max-w-[100px]" disabled={isLoading}>
+              {isLoading ? "Vérification..." : "Valider"}
+            </Button>
+          </form>
+        </Form>
+      </div>
+    </div>
   );
 };
 

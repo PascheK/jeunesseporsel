@@ -14,7 +14,7 @@ import {
   FormMessage
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
- 
+
 import FormOtp from "@/components/forms/FormOtp";
 
 const formSchemaModifyInscrit = z.object({
@@ -22,7 +22,7 @@ const formSchemaModifyInscrit = z.object({
     .string()
     .min(1, { message: "Le nombre minimum est 1." })
     .max(200, { message: "Le nombre maximal est 200." }),
-    nbPlaceFinal: z
+  nbPlaceFinal: z
     .string()
     .min(1, { message: "Le nombre minimum est 1." })
     .max(200, { message: "Le nombre maximal est 200." })
@@ -56,7 +56,7 @@ const FormModification = ({ nbPlace }: { nbPlace: number }) => {
       .then((response) => {
         if (response.ok) {
           console.log("response ok");
-         
+
         } else {
           console.log("response not ok");
         }
@@ -73,9 +73,8 @@ const FormModification = ({ nbPlace }: { nbPlace: number }) => {
   }
   return (
     <div
-      className={`relative  transition-all  ${
-        isSliding ? "animate-slide-out" : "animate-slide-in"
-      }`}
+      className={`relative  transition-all my-auto  ${isSliding ? "animate-slide-out" : "animate-slide-in"
+        }`}
     >
       {step === 1 ? (
         <Form {...formModifyInscrit}>
@@ -106,13 +105,13 @@ const FormModification = ({ nbPlace }: { nbPlace: number }) => {
               name="nbPlaceFinal"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>* Nombre de place </FormLabel>
+                  <FormLabel>* Nombre de place Final</FormLabel>
                   <FormControl>
                     <Input
                       disabled={isLoading}
                       type="number"
                       max={nbPlace}
-                      min="1"
+                      min="0"
                       placeholder="5"
                       {...field}
                     />
@@ -122,8 +121,8 @@ const FormModification = ({ nbPlace }: { nbPlace: number }) => {
               )}
             />
             <p className="caption text-gray-600">
-              <span className="font-bold">* Nombre de place :</span> Veuillez
-              entrez le nombre de place que vous voulez rajouter.
+              <span className="font-bold">* Nombre de place finale :</span> Veuillez
+              entrez le nombre de place finale que vous souhaitez avoir.
             </p>
             <Button type="submit" disabled={isLoading}>
               Modifier !
