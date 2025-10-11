@@ -38,9 +38,10 @@ export const itemCarousel: CarouselItem[] = [
 ];
 
 export const photoCarousel: CarouselItem[] = [
+
   {
     alt: "Fondue 1",
-    src: "/assets/images/fondue/fondue_1.jpeg"
+    src: "/assets/images/fondue/fondue_0.jpeg"
   },
   {
     alt: "Fondue 2",
