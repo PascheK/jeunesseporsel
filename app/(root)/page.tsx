@@ -12,7 +12,6 @@ const Home = () => {
       <AccueilJeunesse href="#accueil-theatre" />
 
       {/* Home section with logo and CTA */}
-      <FondueCtaSection />
       <HomeSection />
     </>
   );
