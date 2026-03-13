@@ -12,7 +12,7 @@ export const navItems = [
   {
     name: "Fondue",
     url: "/fondue",
-    isActive: true,
+    isActive: false,
   },
   {
     name: "Société",

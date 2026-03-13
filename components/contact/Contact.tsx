@@ -13,10 +13,9 @@ const Contact = () => {
             <p>
               📞 Téléphone :{" "}
               <span className="hover:text-brand rounded-md p-1 font-bold transition-colors">
-                <a href="tel:+41763103560"> +41 77 310 35 60</a>
+                <a href="tel:+41763103560"> +41 76 310 35 60</a>
               </span>{" "}
             </p>
-            <p>📍 Case postal 155, 1610 Oron-La-Ville </p>
           </div>
         </div>
       </div>
