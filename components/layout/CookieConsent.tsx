@@ -1,8 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const CookieConsent = () => {
   const [visible, setVisible] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const saved = typeof window !== "undefined" && localStorage.getItem("cookie-consent");
@@ -18,7 +20,7 @@ const CookieConsent = () => {
     setVisible(false);
   };
 
-  if (!visible) return null;
+  if (!visible || pathname.startsWith("/admin")) return null;
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 flex flex-col items-center gap-2 bg-jeunesse-white p-4 text-black">
