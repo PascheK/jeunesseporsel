@@ -7,7 +7,7 @@ const FondueInfoPratique = () => {
     {
       icon: <Edit size={40} className="text-brand" />,
       title: "Comment réserver ?",
-      text: "Pour réserver votre place, rendez-vous sur notre site et remplissez le formulaire de réservation en ligne. Vous recevrez une confirmation par email. N’attendez pas, les places sont limitées !\n\nLes réservations par message sont également disponibles au 076 310 35 60.",
+      text: "Pour réserver votre place, rendez-vous sur notre site et remplissez le formulaire de réservation en ligne. Vous recevrez une confirmation par email. N’attendez pas, les places sont limitées !\n\nLes réservations par message sont également disponibles au 079 883 43 83.",
     },
     {
       icon: <MapPin size={40} className="text-brand" />,
@@ -17,7 +17,7 @@ const FondueInfoPratique = () => {
     {
       icon: <CreditCard size={40} className="text-brand" />,
       title: "Paiement",
-      text: "Le paiement peut se faire sur place en espèces, par carte ou via Twint. Merci de préparer votre moyen de paiement à l'avance pour fluidifier l'entrée.",
+      text: "30.- par personne, prix enfant 1.- par année jusqu'à 12 ans. Le paiement se fait sur place en espèces ou via Twint. Merci de préparer votre moyen de paiement à l'avance pour fluidifier l'entrée.",
     },
     {
       icon: <Clock size={40} className="text-brand" />,
