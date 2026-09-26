@@ -31,6 +31,7 @@ const FormModification = ({ nbPlace }: { nbPlace: number }) => {
   const [step, setStep] = useState(1);
   const [isSliding, setIsSliding] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const formModifyInscrit = useForm<z.infer<typeof formSchemaModifyInscrit>>({
     resolver: zodResolver(formSchemaModifyInscrit),
@@ -46,23 +47,27 @@ const FormModification = ({ nbPlace }: { nbPlace: number }) => {
     // generate Code for idInscrit
     const data = { ...values, method: "generateCode" };
     setIsLoading(true);
-    await fetch("api/inscrits", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-      .then((response) => {
-        if (response.ok) {
-          console.log("response ok");
-
-        } else {
-          console.log("response not ok");
-        }
-      })
-      .finally(() => setIsLoading(false));
-    console.log(data);
+    setSubmitError(null);
+    try {
+      const response = await fetch("/api/inscrits", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+      if (!response.ok) {
+        throw new Error(`Erreur ${response.status}`);
+      }
+    } catch (error) {
+      console.error("Error generating code:", error);
+      setSubmitError(
+        "Impossible d'envoyer le code pour le moment. Réessayez dans quelques instants ou contactez-nous."
+      );
+      return;
+    } finally {
+      setIsLoading(false);
+    }
 
     setIsSliding(true);
 
@@ -124,6 +129,9 @@ const FormModification = ({ nbPlace }: { nbPlace: number }) => {
               <span className="font-bold">* Nombre de place finale :</span> Veuillez
               entrez le nombre de place finale que vous souhaitez avoir.
             </p>
+            {submitError && (
+              <p className="text-sm font-medium text-red-600">{submitError}</p>
+            )}
             <Button type="submit" disabled={isLoading}>
               Modifier !
             </Button>

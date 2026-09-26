@@ -1,6 +1,5 @@
 import AccueilJeunesse from "@/components/accueil/AccueilJeunesse";
 import FondueCtaSection from "@/components/accueil/FondueCtaSection";
-import HomeSection from "@/components/accueil/HomeSection";
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -13,9 +12,7 @@ const Home = () => {
     <>
       <AccueilJeunesse href="#accueil-theatre" />
 
-      {/* Home section with logo and CTA */}
       <FondueCtaSection />
-      <HomeSection />
     </>
   );
 };
