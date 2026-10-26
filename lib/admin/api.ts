@@ -52,6 +52,9 @@ export async function adminFetch<T>(path: string, method = "GET", body?: unknown
     window.location.href = "/admin/login";
     throw new Error("Session expirée, reconnectez-vous.");
   }
+  if (!res.headers.get("content-type")?.includes("application/json")) {
+    throw new Error("Réponse inattendue du serveur, réessayez dans un instant.");
+  }
   const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error(data?.message || `Erreur ${res.status}`);
   return data.data as T;
