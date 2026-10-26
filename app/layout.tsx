@@ -15,17 +15,14 @@ export const metadata: Metadata = {
   title: "Jeunesse de Porsel",
   description: "Site officiel de la jeunesse de Porsel !",
   metadataBase: new URL("https://jeunessedeporsel.ch"),
+
   openGraph: {
     title: "Jeunesse de Porsel",
     description: "Site officiel de la jeunesse de Porsel !",
     url: "https://jeunessedeporsel.ch/",
     siteName: "Jeunesse de Porsel",
     type: "website",
-  },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-  },
+  }
 };
 
 export default function RootLayout({
@@ -45,3 +42,8 @@ export default function RootLayout({
     </html>
   );
 }
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1
+};
