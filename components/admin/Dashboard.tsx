@@ -55,14 +55,14 @@ const Dashboard = () => {
   selectedIdRef.current = selectedId;
 
   const loadEvenements = useCallback(async () => {
-    const list = await adminFetch<AdminEvenement[]>("evenements");
+    const list = (await adminFetch<AdminEvenement[]>("evenements")) ?? [];
     setEvenements(list);
     setSelectedId((current) => (current && list.some((e) => e.id === current) ? current : list.at(-1)?.id ?? null));
     return list;
   }, []);
 
   const loadInscrits = useCallback(async (evenementId: number) => {
-    setInscrits(await adminFetch<AdminInscrit[]>(`evenements/${evenementId}/inscrits`));
+    setInscrits((await adminFetch<AdminInscrit[]>(`evenements/${evenementId}/inscrits`)) ?? []);
   }, []);
 
   const refresh = useCallback(async () => {
